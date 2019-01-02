@@ -1,0 +1,23 @@
+/**
+ * @file
+ * NOSCRIPT
+ */
+
+
+
+
+/* Header */
+
+.c-header {
+    body.is-preload & {
+        &.c-header--alt {
+             > * {
+                opacity: 1;
+            }
+
+            .c-logo {
+                transform: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,132 @@
+/**
+ * @file
+ *** COMPARISON SLIDER COMPONENT ***
+ *
+ * Comparison Sliders are sliders for comparing two images. It is built in
+ * pure CSS.
+ * @see redit: http://codepen.io/solipsistacp/pen/Gpmaq
+ * @see: https://picturepan2.github.io/spectre/experimentals.html#comparison
+ */
+
+
+
+
+.c-comparison-slider {
+    position: relative;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 50vh;
+
+    &--before,
+    &--after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        margin: 0;
+        height: 100%;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: left center;
+        }
+    }
+
+    &--before {
+        z-index: 1;
+        width: 100%;
+
+        .c-comparison__label {
+            right: $unit-4;
+        }
+    }
+
+    &--after {
+        z-index: 2;
+        min-width: 0;
+        max-width: 100%;
+
+        &::before {
+            position: absolute;
+            top: 0;
+            right: $unit-4;
+            left: 0;
+            z-index: $zindex-0;
+            height: 100%;
+            background: transparent;
+            content: '';
+            cursor: default;
+        }
+
+        &::after {
+            position: absolute;
+            top: 50%;
+            right: $unit-2;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: currentColor;
+            box-shadow: 0 -5px, 0 5px;
+            color: $light-color;
+            content: '';
+            transform: translate(50%, -50%);
+        }
+
+        .c-comparison__label {
+            left: $unit-4;
+        }
+    }
+
+    &__resizer {
+        position: relative;
+        top: 50%;
+        left: 0;
+        min-width: $unit-4;
+        max-width: 100%;
+        width: 0;
+        height: $unit-4;
+        outline: none;
+        opacity: 0;
+        resize: horizontal;
+        cursor: ew-resize;
+        transform: translateY(-50%) scaleY(30);
+        animation: first-run 1.5s 1 ease-in-out;
+    }
+
+    &__label {
+        position: absolute;
+        bottom: $unit-4;
+        padding: $unit-1 $unit-2;
+        background: rgba($dark-color, .5);
+        color: $light-color;
+
+        user-select: none;
+    }
+}
+
+@keyframes first-run {
+    0% {
+        width: 0;
+    }
+
+    25% {
+        width: $unit-12;
+    }
+
+    50% {
+        width: $unit-4;
+    }
+
+    75% {
+        width: $unit-6;
+    }
+
+    100% {
+        width: 0;
+    }
+}

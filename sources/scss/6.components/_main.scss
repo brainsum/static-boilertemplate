@@ -1,0 +1,50 @@
+/**
+ * @file
+ *** MAIN COMPONENT ***
+ */
+
+
+
+
+main {
+    border-radius: $unit-2;
+    background-color: $light-color;
+
+     > .t-main {
+        padding: $unit-4 * 3 $unit-4 * 1.5 $unit-4;
+
+        @include media(xs) {
+            padding: $unit-4 * 3 $unit-4 * 2 $unit-4;
+            border-top: solid 1px $gray-color-light;
+        }
+        @include media(sm) {
+            padding: $unit-4 * 4 $unit-4 * 3 $unit-4 * 2;
+        }
+        @include media(md) {
+            padding: $unit-4 * 4 $unit-4 * 4 $unit-4 * 2;
+        }
+        @include media(lg) {
+            padding: $unit-4 * 5 $unit-4 * 5 $unit-4 * 3;
+        }
+        @include media(xl) {
+            padding: $unit-4 * 5;
+        }
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &.t-main--special {
+            text-align: center;
+        }
+    }
+
+    &,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $dark-color;
+    }
+}

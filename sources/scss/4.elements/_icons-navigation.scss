@@ -1,0 +1,161 @@
+/**
+ * @file
+ *** NAVIGATION ICONS ***
+*/
+
+
+
+
+/**
+ * ICON ARROWS
+ */
+
+.icon-arrow-down,
+.icon-arrow-left,
+.icon-arrow-right,
+.icon-arrow-up,
+.icon-downward,
+.icon-back,
+.icon-forward,
+.icon-upward {
+    &::before {
+        width: .65em;
+        height: .65em;
+        border: $icon-border-width solid currentColor;
+        border-right: 0;
+        border-bottom: 0;
+        content: '';
+    }
+}
+
+.icon-arrow-down {
+    &::before {
+        transform: translate(-50%, -75%) rotate(225deg);
+    }
+}
+
+.icon-arrow-left {
+    &::before {
+        transform: translate(-25%, -50%) rotate(-45deg);
+    }
+}
+
+.icon-arrow-right {
+    &::before {
+        transform: translate(-75%, -50%) rotate(135deg);
+    }
+}
+
+.icon-arrow-up {
+    &::before {
+        transform: translate(-50%, -25%) rotate(45deg);
+    }
+}
+
+.icon-back,
+.icon-forward {
+    &::after {
+        width: .8em;
+        height: $icon-border-width;
+        background: currentColor;
+        content: '';
+    }
+}
+
+.icon-downward,
+.icon-upward {
+    &::after {
+        width: $icon-border-width;
+        height: .8em;
+        background: currentColor;
+        content: '';
+    }
+}
+
+.icon-back {
+    &::after {
+        left: 55%;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.icon-downward {
+    &::after {
+        top: 45%;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(-135deg);
+    }
+}
+
+.icon-forward {
+    &::after {
+        left: 45%;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(135deg);
+    }
+}
+
+.icon-upward {
+    &::after {
+        top: 55%;
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+
+/**
+ * ICON CARET
+ */
+
+.icon-caret {
+    &::before {
+        width: 0;
+        height: 0;
+        border-top: .3em solid currentColor;
+        border-right: .3em solid transparent;
+        border-left: .3em solid transparent;
+        content: '';
+        transform: translate(-50%, -25%);
+    }
+}
+
+
+/**
+ * ICON MENU
+ */
+
+.icon-menu {
+    &::before {
+        width: 100%;
+        height: $icon-border-width;
+        background: currentColor;
+        box-shadow: 0 -.35em, 0 .35em;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON APPS
+ */
+
+.icon-apps {
+    &::before {
+        width: 3px;
+        height: 3px;
+        background: currentColor;
+        box-shadow: -.35em -.35em, -.35em 0, -.35em .35em, 0 -.35em,
+        0 .35em, .35em -.35em, .35em 0, .35em .35em;
+        content: '';
+    }
+}

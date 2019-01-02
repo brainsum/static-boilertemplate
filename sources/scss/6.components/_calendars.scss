@@ -1,0 +1,246 @@
+/**
+ * @file
+ *** CALENDARS COMPONENT ***
+ *
+ * Calendars are designed for date or date range picker and events display.
+ * It is made with flex layout.
+ * @see: https://picturepan2.github.io/spectre/experimentals.html#calendars
+ */
+
+
+
+
+.c-calendar {
+    display: block;
+    min-width: 280px;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        padding: $layout-spacing;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        background: $bg-color;
+        font-size: $font-size-lg;
+    }
+
+    &__header,
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: $layout-spacing 0;
+
+        .c-calendar__date {
+            flex: 0 0 14.28%; // 7 calendar-items each row
+            max-width: 14.28%;
+        }
+    }
+
+    &__header {
+        border-bottom: $border-width solid $border-color;
+        background: $bg-color;
+        color: $gray-color;
+        text-align: center;
+        font-size: $font-size-sm;
+    }
+
+    &__body {
+        color: $gray-color-dark;
+    }
+
+    &__date {
+        padding: $unit-1;
+        border: 0;
+
+        .date__item {
+            @include control-transition;
+            position: relative;
+            padding: $unit-h;
+            width: $unit-7;
+            height: $unit-7;
+            outline: none;
+            border: $border-width solid transparent;
+            border-radius: 50%;
+            background: transparent;
+            color: $gray-color-dark;
+            vertical-align: middle;
+            text-align: center;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: $font-size-sm;
+            line-height: $unit-5;
+            cursor: pointer;
+
+            appearance: none;
+
+            &.date--today {
+                border-color: $secondary-color-dark;
+                color: $primary-color;
+            }
+
+            &:focus {
+                @include control-shadow();
+            }
+
+            &:focus,
+            &:hover {
+                border-color: $secondary-color-dark;
+                background: $secondary-color-light;
+                color: $primary-color;
+                text-decoration: none;
+            }
+
+            &:active,
+            &.active {
+                border-color: darken($primary-color-dark, 5%);
+                background: $primary-color-dark;
+                color: $light-color;
+            }
+
+            // Calendar badge support
+            &.c-badge {
+                &::after {
+                    position: absolute;
+                    top: 3px;
+                    right: 3px;
+                    transform: translate(50%, -50%);
+                }
+            }
+        }
+
+        .date__item,
+        .c-calendar__event {
+            &:disabled,
+            &.disabled {
+                opacity: .25;
+                cursor: default;
+                pointer-events: none;
+            }
+        }
+
+        &.prev-month,
+        &.next-month {
+            .date__item,
+            .c-calendar__event {
+                opacity: .25;
+            }
+        }
+    }
+
+    .c-calendar__range {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            height: $unit-7;
+            background: $secondary-color;
+            content: '';
+            transform: translateY(-50%);
+        }
+
+        &.range {
+            &--start {
+                &::before {
+                    left: 50%;
+                }
+            }
+
+            &--end {
+                &::before {
+                    right: 50%;
+                }
+            }
+
+            &--start,
+            &--end {
+                .date__item {
+                    border-color: darken($primary-color-dark, 5%);
+                    background: $primary-color-dark;
+                    color: $light-color;
+                }
+            }
+        }
+
+        .date__item {
+            color: $primary-color;
+        }
+    }
+
+    // Calendars size
+    &.c-calendar--lg {
+        .c-calendar__body {
+            padding: 0;
+
+            .c-calendar__date {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                height: 5.5rem;
+                border-right: $border-width solid $border-color;
+                border-bottom: $border-width solid $border-color;
+
+                &:nth-child(7n) {
+                    border-right: 0;
+                }
+
+                &:nth-last-child(-n+7) {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        .date__item {
+            align-self: flex-end;
+            margin-top: $layout-spacing-sm;
+            margin-right: $layout-spacing-sm;
+            height: $unit-7;
+        }
+
+        .c-calendar__range {
+            &::before {
+                top: 19px;
+            }
+
+            &.range {
+                &--start {
+                    &::before {
+                        left: auto;
+                        width: 19px;
+                    }
+                }
+
+                &--end {
+                    &::before {
+                        right: 19px;
+                    }
+                }
+            }
+        }
+
+        .c-calendar {
+            &__events {
+                overflow-y: auto;
+                flex-grow: 1;
+                padding: $layout-spacing-sm;
+                line-height: 1;
+            }
+
+            &__event {
+                display: block;
+                overflow: hidden;
+                margin: $unit-h auto;
+                padding: 3px 4px;
+                border-radius: $border-radius;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: $font-size-sm;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+/**
+ * @file
+ *** SMACCS: THEME ***
+ *
+ * Purely visual styling ("look-and-feel") for components.
+ *
+ * ITCSS: -
+ */
+
+
+
+
+/**
+ * IMPORTS
+ * First import our custom variables and mixins
+ */
+
+@import 'index';
+
+
+body {
+    background-color: $primary-color;
+}

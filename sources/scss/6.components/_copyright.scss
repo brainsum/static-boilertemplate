@@ -1,0 +1,16 @@
+/**
+ * @file
+ * COPYRIGHT COMPONENT
+ */
+
+
+
+
+.c-copyright {
+    font-size: $font-size-sm;
+    margin: $unit-8 0 $unit-6;
+
+    @include media(md) {
+        text-align: center;
+    }
+}

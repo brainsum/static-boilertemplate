@@ -1,0 +1,15 @@
+/**
+ *** TOAST MIXINS ***
+ */
+
+
+
+
+/**
+ * TOAST VARIANT MIXIN
+ */
+
+@mixin toast-variant($color: $dark-color) {
+    border-color: $color;
+    background: rgba($color, .9);
+}

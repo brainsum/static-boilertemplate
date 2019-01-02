@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BRAINSUM Static Frontend Boilertemplate</title>
+    <meta name="description" content="how to use Gulp.js, Sass, JavaScript, Pug.js, yarn, node.js and code quality tools">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/images/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link type="image/png" href="/images/favicon/favicon-32x32.png" rel="icon" sizes="32x32">
+    <link type="image/png" href="/images/favicon/favicon-16x16.png" rel="icon" sizes="16x16">
+    <link href="/images/favicon/site.webmanifest" rel="manifest">
+    <link href="/images/favicon/safari-pinned-tab.svg" rel="mask-icon" color="#ffdd00">
+    <link href="/images/favicon/favicon.ico" rel="shortcut icon">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="/fonts/opensans-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css">
+    </noscript>
+    <script>
+        (function () {
+            // Optimization for Repeat Views
+            if (sessionStorage.fontsLoadedFoutWithClass) {
+                document.documentElement.className += " fonts-loaded";
+                return;
+            }
+            if ("fonts" in document) {
+                Promise.all([
+                    document.fonts.load("400 1em Open-Sans"),
+                    document.fonts.load("600 1em Open-Sans"),
+                    document.fonts.load("700 1em Open-Sans"),
+                    document.fonts.load("300 1em Open-Sans")
+                ]).then(function () {
+                    document.documentElement.className += " fonts-loaded";
+                    // Optimization for Repeat Views
+                    sessionStorage.fontsLoadedFoutWithClass = true;
+                });
+            }
+        })();
+    </script>
+</head>
+
+<body class="is-preload">
+    <!--[if lte IE 9]>
+        <p class='browserupgrade'>You are using an <strong>outdated</strong> browser. Please <a href='https://browsehappy.com/'>upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+    <div class="o-container">
+        <header class="c-header c-header--alt" id="header"><span class="c-logo"><i class="c-logo__image">
+                    <svg>
+                        <use xlink:href="../images/icons.svg#icon-rocket"></use>
+                    </svg></i></span>
+            <h1>Stellar</h1>
+            <p>Frontend boilertemplate for static sites @ Brainsum<br>based on <a href="https://html5up.net/stellar">Stellar</a>
+                by <a href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </header>
+
+        <nav class="c-navigation" id="navigation">
+            <ul>
+                <li><a class="is-active" href="#intro">Introduction</a></li>
+                <li><a href="#first">First Section</a></li>
+                <li><a href="#second">Second Section</a></li>
+                <li><a href="#cta">Get Started</a></li>
+            </ul>
+        </nav>
+
+        <main id="main">
+            <section class="o-section t-main" id="intro">
+                <div class="c-spotlight o-columns u-col-oneline u-col-gapless">
+                    <div class="c-spotlight__content o-column">
+                        <header class="o-section__header">
+                            <h2>Ipsum sed adipiscing</h2>
+                        </header>
+                        <p>
+                            Sed lorem ipsum dolor sit amet nullam consequat feugiat consequat magna
+                            adipiscing magna etiam amet veroeros. Lorem ipsum dolor tempus sit cursus.
+                            Tempus nisl et nullam lorem ipsum dolor sit amet aliquam.
+                        </p>
+                        <ul class="o-section__actions o-columns u-col-oneline u-col-gapless">
+                            <li><a class="c-btn" href="generic.html">Learn More</a></li>
+                        </ul>
+                    </div><span class="c-spotlight__image u-shape--circle u-col-auto"><img class="u-shape--circle" src="../images/pic01.jpg"
+                            alt="The world from my phone"></span>
+                </div>
+            </section>
+
+            <section class="o-section t-main t-main--special" id="first">
+                <header class="o-section__header">
+                    <h2>Magna veroeros</h2>
+                </header>
+
+                <ul class="c-feature__container o-columns">
+                    <li class="c-feature"><span class="icon__container u-shape--circle">
+                            <svg class="icon t-style-1">
+                                <use xlink:href="../images/icons.svg#icon-code"></use>
+                            </svg></span>
+                        <h3>Ipsum consequat</h3>
+                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed
+                            consequat.</p>
+                    </li>
+                    <li class="c-feature"><span class="icon__container u-shape--circle">
+                            <svg class="icon t-style-3">
+                                <use xlink:href="../images/icons.svg#icon-copy"></use>
+                            </svg></span>
+                        <h3>Amed sed feugiat</h3>
+                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed
+                            consequat.</p>
+                    </li>
+                    <li class="c-feature"><span class="icon__container u-shape--circle">
+                            <svg class="icon t-style-5">
+                                <use xlink:href="../images/icons.svg#icon-gem"></use>
+                            </svg></span>
+                        <h3>Dolor nullam</h3>
+                        <p>Sed lorem amet ipsum dolor et amet nullam consequat a feugiat consequat tempus veroeros sed
+                            consequat.</p>
+                    </li>
+                </ul>
+
+                <footer class="o-section__footer">
+                    <ul class="o-section__actions o-section__actions--special o-columns u-col-oneline u-col-gapless">
+                        <li><a class="c-btn" href="#">Learn More</a></li>
+                    </ul>
+                </footer>
+            </section>
+
+            <section class="o-section t-main t-main--special" id="second">
+                <header class="o-section__header">
+                    <h2>Ipsum consequat</h2>
+                    <p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br>posuere. Nulla massa urna,
+                        fermentum eget quam aliquet.</p>
+                </header>
+                <ul class="c-statistics o-columns u-col-oneline">
+                    <li class="c-statistics__item o-column o-columns u-col-oneline u-col-gapless t-style-1">
+                        <svg class="icon">
+                            <use xlink:href="../images/icons.svg#icon-code-branch"></use>
+                        </svg><strong class="c-statistics__number">5.120</strong> Etiam
+                    </li>
+                    <li class="c-statistics__item o-column o-columns u-col-oneline u-col-gapless t-style-2">
+                        <svg class="icon">
+                            <use xlink:href="../images/icons.svg#icon-folder-open"></use>
+                        </svg><strong class="c-statistics__number">8.192</strong> Magna
+                    </li>
+                    <li class="c-statistics__item o-column o-columns u-col-oneline u-col-gapless t-style-3">
+                        <svg class="icon">
+                            <use xlink:href="../images/icons.svg#icon-signal"></use>
+                        </svg><strong class="c-statistics__number">2.048</strong> Tempus
+                    </li>
+                    <li class="c-statistics__item o-column o-columns u-col-oneline u-col-gapless t-style-4">
+                        <svg class="icon">
+                            <use xlink:href="../images/icons.svg#icon-laptop"></use>
+                        </svg><strong class="c-statistics__number">4.096</strong> Aliquam
+                    </li>
+                    <li class="c-statistics__item o-column o-columns u-col-oneline u-col-gapless t-style-5">
+                        <svg class="icon">
+                            <use xlink:href="../images/icons.svg#icon-gem"></use>
+                        </svg><strong class="c-statistics__number">1.024</strong> Nullam
+                    </li>
+                </ul>
+                <p class="o-section__content">
+                    Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a
+                    risus.
+                    Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius
+                    lorem,
+                    sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar
+                    faucibus
+                    semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla
+                    mattis
+                    et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit
+                    scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.
+                </p>
+                <footer class="o-section__footer">
+                    <ul class="o-section__actions o-section__actions--special">
+                        <li><a class="c-btn" href="#">Learn More</a></li>
+                    </ul>
+                </footer>
+            </section>
+            <section class="o-section t-main t-main--special" id="cta">
+                <header class="o-section__header">
+                    <h2>Congue imperdiet</h2>
+                    <p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br>posuere. Nulla massa urna,
+                        fermentum eget quam aliquet.</p>
+                </header>
+                <footer class="o-section__footer">
+                    <ul class="o-section__actions o-section__actions--special o-columns u-col-oneline">
+                        <li><a class="c-btn c-btn--primary" href="#">Get Started</a></li>
+                        <li><a class="c-btn" href="#">Learn More</a></li>
+                    </ul>
+                </footer>
+            </section>
+        </main>
+        <footer class="c-footer o-columns" id="footer">
+            <section class="o-section c-footer__section o-column u-col-12 u-col-md-6">
+                <h2>Aliquam sed mauris</h2>
+                <p>
+                    Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam
+                    dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat
+                    egestas
+                    velit, vitae tincidunt odio.
+                </p>
+                <ul class="o-section__actions o-columns u-col-oneline">
+                    <li><a class="c-btn" href="generic.html">Learn More</a></li>
+                </ul>
+            </section>
+            <section class="o-section c-footer__section o-column u-col-12 u-col-md-6">
+                <h2>Etiam feugiat</h2>
+                <dl class="c-contact o-columns">
+                    <dt class="c-contact__label o-column u-col-3">Address</dt>
+                    <dd class="c-contact__content o-column u-col-9">1234 Somewhere Road &bull; Nashville, TN 00000
+                        &bull; USA</dd>
+                    <dt class="c-contact__label o-column u-col-3">Phone</dt>
+                    <dd class="c-contact__content o-column u-col-9">(000) 000-0000 x 0000</dd>
+                    <dt class="c-contact__label o-column u-col-3">Email</dt>
+                    <dd class="c-contact__content o-column u-col-9"><a href="#">information@untitled.tld</a></dd>
+                </dl>
+                <ul class="c-social__container o-columns">
+                    <li class="c-social">
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="../images/icons.svg#icon-twitter"></use>
+                            </svg>
+                            <span class="u-text-assistive">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="c-social">
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="../images/icons.svg#icon-facebook"></use>
+                            </svg>
+                            <span class="u-text-assistive">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="c-social">
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="../images/icons.svg#icon-instagram"></use>
+                            </svg>
+                            <span class="u-text-assistive">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="c-social">
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="../images/icons.svg#icon-github"></use>
+                            </svg>
+                            <span class="u-text-assistive">Github</span>
+                        </a>
+                    </li>
+                    <li class="c-social">
+                        <a href="#">
+                            <svg class="icon">
+                                <use xlink:href="../images/icons.svg#icon-dribble"></use>
+                            </svg>
+                            <span class="u-text-assistive">Dribble</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <p class="c-copyright o-column u-col-12">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+    </div>
+    <script src="/vendors/modernizr/modernizr-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/vendors/jquery/dist/jquery.min.js"><\/script>')</script>
+    <script src="/vendors/jquery.scrollex/jquery.scrollex.min.js"></script>
+    <script src="/vendors/jquery.scrolly/jquery.scrolly.js"></script>
+    <script src="/javascripts/main.js"></script>
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</body>
+
+</html>

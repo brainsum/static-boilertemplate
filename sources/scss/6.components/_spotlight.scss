@@ -1,0 +1,51 @@
+/**
+ * @file
+ *** SPOTLIGHT COMPONENT ***
+ */
+
+
+
+
+.c-spotlight {
+    flex-direction: column-reverse;
+    text-align: center;
+
+    @include media(md) {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    &__image {
+        margin: 0 auto $unit-8;
+        padding: $unit-3;
+        border: solid $border-width $gray-color-light;
+
+        @include media(md) {
+            margin: 0 auto 0 7.5rem;
+        }
+
+        img {
+            display: block;
+            width: 20rem;
+
+            @include media(xs) {
+                width: 30rem;
+            }
+        }
+    }
+
+    &__actions {
+        justify-content: center;
+        margin: 0 0 0 -#{$unit-4} !important;
+        list-style: none;
+
+        @include media(md) {
+            justify-content: flex-start;
+        }
+
+        li {
+            margin: 0;
+            padding-left: $unit-4;
+        }
+    }
+}

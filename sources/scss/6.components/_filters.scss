@@ -1,0 +1,65 @@
+/**
+ * @file
+ *** FILTERS COMPONENT ***
+ *
+ * Filters are CSS only content filters.
+ * @see: https://picturepan2.github.io/spectre/experimentals.html#filters
+ */
+
+
+
+/**
+ * Filter settings
+ */
+
+/**
+ * The number of filter options
+ * Overwrite this if you want more filters.
+ */
+
+$filter-number: 8 !default;
+
+
+/**
+ * Extending Placeholders
+ */
+
+%filter-checked-nav {
+    background: $primary-color;
+    color: $light-color;
+}
+
+%filter-checked-body {
+    display: none;
+}
+
+
+/**
+ * Filters use `tag-1` to `tag-8` to flag different tags. `tag-0` is reserved
+ * for clearing filter (or showing all).
+ */
+
+.c-filter {
+    &__nav {
+        margin: $layout-spacing 0;
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__tag {
+        @for $i from 0 through ($filter-number) {
+            &#tag-#{$i}:checked ~ .c-filter__nav .c-chip[for='tag-#{$i}'] {
+                @extend %filter-checked-nav;
+            }
+        }
+
+        @for $i from 1 through ($filter-number) {
+            &#tag-#{$i}:checked ~ .c-filter__body .c-filter__item:not([data-tag~='tag-#{$i}']) {
+                @extend %filter-checked-body;
+            }
+        }
+    }
+}

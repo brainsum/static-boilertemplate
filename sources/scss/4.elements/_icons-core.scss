@@ -1,0 +1,86 @@
+/**
+ * @file
+ *** ICONS CORE ***
+ */
+
+
+
+
+/**
+ * ICON VARIABLES
+ */
+
+$icon-border-width: $border-width-lg;
+$icon-prefix: 'icon';
+
+
+/**
+ * ICON BASE STYLE
+ * @code
+ *      <i class="icon icon-menu"></i>
+ * @endcode
+ */
+
+.#{$icon-prefix} {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    text-indent: -9999px;
+    font-style: normal;
+    font-size: inherit;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        transform: translate(-50%, -50%);
+    }
+
+
+    /**
+     * ICON SIZES
+     * Use `icon--2x`, `icon--3x` and `icon--4x` classes to increase icon sizes.
+     * You can set `font-size` to have different icon sizes.
+     *
+     * @code
+     *      <i class="icon icon--2x icon-mail"></i>
+     * @endcode
+     */
+
+    &.icon--2x {
+        font-size: 1.6rem;
+    }
+
+    &.icon--3x {
+        font-size: 2.4rem;
+    }
+
+    &.icon--4x {
+        font-size: 3.2rem;
+    }
+}
+
+
+/**
+ * COMPONENT ICON SUPPORT
+ */
+
+.accordion,
+.btn,
+.toast,
+.menu {
+    .#{$icon-prefix} {
+        vertical-align: -10%;
+    }
+}
+
+.btn--lg {
+    .#{$icon-prefix} {
+        vertical-align: -15%;
+    }
+}

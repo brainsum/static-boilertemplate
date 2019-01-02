@@ -1,0 +1,32 @@
+/**
+ * @file
+ *** SOCIALS COMPONENT ***
+ */
+
+
+
+
+.c-social {
+    margin: 0;
+    padding-right: $unit-3;
+
+    &__container {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $unit-10;
+        height: $unit-10;
+        border: 1px solid;
+        border-radius: 50%;
+    }
+
+    .icon {
+        fill: $light-color;
+    }
+}

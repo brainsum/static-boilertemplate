@@ -1,0 +1,13 @@
+/**
+ * @file
+ *** TEXT ELLIPSIS MIXIN ***
+ */
+
+
+
+
+@mixin text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

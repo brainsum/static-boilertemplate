@@ -1,0 +1,46 @@
+/**
+ * @file
+ *** ACCORDIONS COMPONENT ***
+ *
+ * Accordions are used to toggle sections of content.
+ * @see: https://picturepan2.github.io/spectre/components.html#accordions
+ */
+
+
+
+
+.c-accordion {
+    input:checked ~ ,
+    &[open] {
+        & .c-accordion__icon {
+            transform: rotate(90deg);
+        }
+
+        & .c-accordion__body {
+            max-height: 50rem;
+        }
+    }
+
+    &__header {
+        display: block;
+        padding: $unit-1 $unit-2;
+    }
+
+    &__icon {
+        transition: all .2s ease;
+    }
+
+    &__body {
+        overflow: hidden;
+        margin-bottom: $layout-spacing;
+        max-height: 0;
+        transition: max-height .2s ease;
+    }
+}
+
+// Remove default details marker in Webkit
+summary.c-accordion__header {
+    &::-webkit-details-marker {
+        display: none;
+    }
+}

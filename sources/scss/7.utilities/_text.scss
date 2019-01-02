@@ -1,0 +1,86 @@
+/**
+ * @file
+ *** TEXT UTILITY ***
+ */
+
+
+
+
+/**
+ * TEXT ALIGNMENT UTILITIES
+ */
+
+.u-text--left {
+    text-align: left;
+}
+
+.u-text--right {
+    text-align: right;
+}
+
+.u-text--center {
+    text-align: center;
+}
+
+.u-text--justify {
+    text-align: justify;
+}
+
+
+/**
+ * TEXT TRANSFORM UTILITIES
+ */
+
+.u-text--lowercase {
+    text-transform: lowercase;
+}
+
+.u-text--uppercase {
+    text-transform: uppercase;
+}
+
+.u-text--capitalize {
+    text-transform: capitalize;
+}
+
+
+/**
+ * TEXT STYLE UTILITIES
+ */
+
+.u-text--normal {
+    font-weight: normal;
+}
+
+.u-text--bold {
+    font-weight: bold;
+}
+
+.u-text--italic {
+    font-style: italic;
+}
+
+.u-text--large {
+    font-size: 1.2em;
+}
+
+
+/**
+ * TEXT OVERFLOW UTILITIES
+ */
+
+.u-text--ellipsis {
+    @include text-ellipsis;
+}
+
+.u-text--clip {
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+.u-text--break {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}

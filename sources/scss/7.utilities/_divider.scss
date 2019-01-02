@@ -1,0 +1,57 @@
+/**
+ * @file
+ *** DIVIDER UTILITY ***
+ */
+
+
+
+
+.u-divider,
+.u-divider--vert {
+    position: relative;
+    display: block;
+
+    &[data-content]::after {
+        display: inline-block;
+        padding: 0 $unit-2;
+        background: $bg-color-light;
+        color: $gray-color;
+        content: attr(data-content);
+        font-size: $font-size-sm;
+        transform: translateY(-$font-size-sm + $border-width);
+    }
+}
+
+.u-divider {
+    margin: $unit-2 0;
+    height: $border-width;
+    border-top: $border-width solid $border-color;
+
+    &[data-content] {
+        margin: $unit-4 0;
+    }
+}
+
+.u-divider--vert {
+    display: block;
+    padding: $unit-4;
+
+    &::before {
+        position: absolute;
+        top: $unit-2;
+        bottom: $unit-2;
+        left: 50%;
+        display: block;
+        border-left: $border-width solid $border-color;
+        content: '';
+        transform: translateX(-50%);
+    }
+
+    &[data-content]::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding: $unit-1 0;
+        transform: translate(-50%, -50%);
+    }
+}

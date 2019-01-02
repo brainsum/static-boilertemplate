@@ -1,0 +1,95 @@
+/**
+ * @file
+ *** NAVIGATION COMPONENT ***
+ */
+
+
+
+
+.c-navigation {
+    position: absolute;
+    display: none;
+    padding: 1.8rem $unit-4;
+    max-width: calc(100% - #{$unit-16});
+    width: $control-width-xl;
+    border-top-left-radius: $unit-2;
+    border-top-right-radius: $unit-2;
+    background-color: $gray-color-light;
+    color: $dark-color;
+    text-align: center;
+    cursor: default;
+    transition: background-color .2s ease,
+        border-top-left-radius .2s ease,
+        border-top-right-radius .2s ease,
+        padding .2s ease;
+
+    @include media(md) {
+        display: block;
+    }
+
+    & + #main {
+        padding-top: 0;
+
+        @include media(md) {
+            padding-top: $unit-9 * 2;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 $unit-2;
+        padding: 0;
+        vertical-align: middle;
+        transition: margin .2s ease;
+    }
+
+    a {
+        display: inline-block;
+        padding: 0 $unit-5;
+        height: $unit-9;
+        border: 0;
+        border-radius: $unit-2;
+        box-shadow: inset 0 0 0 1px transparent;
+        line-height: $unit-9;
+        transition: font-size .2s ease;
+
+        &:hover {
+            background-color: $light-color;
+            color: $gray-color-dark;
+        }
+
+        &.is-active {
+            background-color: $light-color;
+            box-shadow: none;
+        }
+    }
+
+
+    /**
+     * fixed on top when we scroll to #main
+     */
+
+    &.c-navigation--alt {
+        position: fixed;
+        top: 0;
+        z-index: $zindex-9;
+        padding: $unit-2 $unit-4;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: transparentize($gray-color-light, .05);
+
+        li {
+            margin: 0 $unit-h;
+        }
+
+        a {
+            font-size: $font-size-sm;
+        }
+    }
+}

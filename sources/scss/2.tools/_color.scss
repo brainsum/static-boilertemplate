@@ -1,0 +1,42 @@
+/**
+ * @file
+ *** COLOR MIXINS ***
+ */
+
+
+
+
+/**
+ * BACKGROUND COLOR UTILITY MIXIN
+ */
+
+@mixin bg-color-variant($name: '.bg-primary', $color: $primary-color) {
+    #{$name} {
+        background: $color;
+
+        @if (lightness($color) < 60) {
+            color: $light-color;
+        }
+    }
+}
+
+
+/**
+ * TEXT COLOR UTILITY MIXIN
+ */
+
+@mixin text-color-variant($name: '.text-primary', $color: $primary-color) {
+    #{$name} {
+        color: $color;
+    }
+
+    a#{$name} {
+        &:focus,
+        &:hover {
+            color: darken($color, 5%);
+        }
+        &:visited {
+            color: lighten($color, 5%);
+        }
+    }
+}

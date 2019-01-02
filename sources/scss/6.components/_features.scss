@@ -1,0 +1,70 @@
+/**
+ * @file
+ *** FEATURES COMPONENT ***
+ */
+
+
+
+
+.c-feature {
+    margin-top: $unit-16;
+    margin-left: $unit-10;
+    width: 100%;
+
+    @include media(sm) {
+        width: calc(100% / 2 - #{$unit-10});
+    }
+    @include media(md) {
+        width: calc(100% / 3 - #{$unit-10});
+    }
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+        margin-top: 0;
+    }
+
+    &__container {
+        justify-content: center;
+        margin: 0 0 $unit-16 -#{$unit-10};
+        list-style: none;
+    }
+
+    .icon {
+        width: 8rem;
+        height: 8rem;
+
+        &.t-style-1 {
+            fill: $success-color;
+        }
+
+        &.t-style-3 {
+            fill: $warning-color;
+        }
+
+        &.t-style-5 {
+            fill: $error-color;
+        }
+
+        &__container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto $unit-8;
+            width: 17rem + $unit-6;
+            height: 17rem + $unit-6;
+            border: solid $border-width $gray-color-light;
+
+            &::before {
+                position: absolute;
+                display: block;
+                width: 17rem;
+                height: 17rem;
+                border: solid $border-width $gray-color-light;
+                border-radius: 50%;
+                content: '';
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+/**
+ * @file
+ *** STATISTICS COMPONENT ***
+ */
+
+
+
+
+.c-statistics {
+    list-style: none;
+    margin: 0 auto $unit-8;
+    flex-direction: column;
+    max-width: $unit-8 * 10;
+
+    @include media(md) {
+        flex-direction: row;
+        max-width: inherit;
+    }
+
+    &__item {
+        color: $light-color;
+        padding: $unit-7;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        &:first-child {
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+
+            @include media(md) {
+                border-top-right-radius: 0;
+                border-bottom-left-radius: $border-radius;
+            }
+        }
+
+        &:last-child {
+            border-bottom-left-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+
+            @include media(md) {
+                border-bottom-left-radius: 0;
+                border-top-right-radius: $border-radius;
+            }
+        }
+
+        &.t-style-1 {
+            background: $success-color;
+        }
+
+        &.t-style-2 {
+            background: $warning-color;
+        }
+
+        &.t-style-3 {
+            background: $error-color;
+        }
+
+        &.t-style-4 {
+            background: $primary-color;
+        }
+
+        &.t-style-5 {
+            background: $success-color;
+        }
+
+        .icon {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: 4.4rem;
+            margin-bottom: $unit-3;
+            fill: $light-color;
+        }
+    }
+
+    &__number {
+        font-weight: 300;
+        font-size: 4rem;
+        line-height: 1.1;
+    }
+}

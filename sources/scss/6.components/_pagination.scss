@@ -1,0 +1,84 @@
+/**
+ * @file
+ *** PAGINATION COMPONENT ***
+ *
+ * @see: https://picturepan2.github.io/spectre/components.html#pagination
+ */
+
+
+
+
+/**
+ * Add a container element with the `c-pagination` class. And add child
+ * elements with the `page__item` class. The `page-item` with the `is-active`
+ * class will be highlighted. You can add the `is-disabled` class to the
+ * `page-item` to have unclickable page links.
+ */
+
+.c-pagination {
+    display: flex;
+    margin: $unit-1 0;
+    padding: $unit-1 0;
+    list-style: none;
+
+    & .page {
+        &__item {
+            margin: $unit-1 $unit-o;
+
+            // for three dots
+            span {
+                display: inline-block;
+                padding: $unit-1 $unit-1;
+            }
+
+            // for linked page numbers
+            a {
+                display: inline-block;
+                padding: $unit-1 $unit-2;
+                border-radius: $border-radius;
+                color: $gray-color-dark;
+                text-decoration: none;
+
+                &:focus,
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+
+            &.is-disabled {
+                a {
+                    opacity: .5;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            }
+
+            &.is-active {
+                a {
+                    background: $primary-color;
+                    color: $light-color;
+                }
+            }
+
+            &.page {
+                &--prev,
+                &--next {
+                    flex: 1 0 50%;
+                }
+
+                &--next {
+                    text-align: right;
+                }
+            }
+
+            &__title {
+                margin: 0;
+            }
+
+            &__subtitle {
+                margin: 0;
+                opacity: .5;
+            }
+        }
+    }
+}

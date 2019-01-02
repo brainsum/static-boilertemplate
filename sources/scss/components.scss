@@ -1,0 +1,74 @@
+/**
+ * @file
+ *** SMACSS: COMPONENTS ***
+ *
+ * Discrete, reusable UI elements.
+ * Import all custom components from ./components/ subdirectory
+ * Turn here on only what you actually need.
+ *
+ * ITCSS: components
+ */
+
+
+
+
+/**
+ * IMPORTS
+ * First import our custom variables and mixins
+ */
+
+@import 'index';
+
+
+/**
+ * COMPONENTS
+ * @see: https://picturepan2.github.io/spectre/components.html
+ */
+
+// @import '6.components/accordions';
+// @import '6.components/avatars';
+// @import '6.components/badges';
+// @import '6.components/bars';
+// @import '6.components/breadcrumbs';
+@import '6.components/buttons';
+// @import '6.components/chips';
+// @import '6.components/codes';
+@import '6.components/contact';
+@import '6.components/copyright';
+// @import '6.components/dropdowns';
+// @import '6.components/empty';
+@import '6.components/features';
+@import '6.components/footer';
+// @import '6.components/forms';
+@import '6.components/header';
+@import '6.components/logo';
+@import '6.components/main';
+// @import '6.components/menus';
+// @import '6.components/modals';
+@import '6.components/navigation';
+// @import '6.components/navs';
+// @import '6.components/pagination';
+// @import '6.components/panels';
+// @import '6.components/popovers';
+@import '6.components/socials';
+@import '6.components/spotlight';
+@import '6.components/statistics';
+// @import '6.components/steps';
+// @import '6.components/tabs';
+// @import '6.components/toasts';
+// @import '6.components/tooltips';
+
+
+/**
+ * EXPERIMENTALS
+ * @see: https://picturepan2.github.io/spectre/experimentals.html
+ */
+
+// @import '6.components/autocomplete';
+// @import '6.components/calendars';
+// @import '6.components/carousels';
+// @import '6.components/comparison-sliders';
+// @import '6.components/filters';
+// @import '6.components/parallax';
+// @import '6.components/sliders';
+// @import '6.components/timelines';

@@ -1,0 +1,87 @@
+/**
+ *** POPOVERS COMPONENT ***
+ *
+ * Popovers are small overlay content containers.
+ * @see: https://picturepan2.github.io/spectre/components.html#popovers
+ */
+
+
+
+
+/**
+ * Wrap an element by a container with the `c-popover` class. And add a
+ * container with the `c-popover__container` next to the element.
+ * You can use Cards component inside the `c-popover__container`.
+ *
+ * Also, you can add the:
+ *  - `c-popover--right`,
+ *  - `c-popover--bottom`,
+ *  - `c-popover--left`
+ * class to define the position.
+ * By default, the popovers appear above the element.
+ */
+
+.c-popover {
+    position: relative;
+    display: inline-block;
+
+    &__container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: $zindex-3;
+        padding: $layout-spacing;
+        width: $control-width-sm;
+        opacity: 0;
+        transition: transform .2s ease;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    *:focus + .c-popover__container,
+    &:hover .c-popover__container {
+        display: block;
+        opacity: 1;
+        transform: translate(-50%, -100%);
+    }
+
+    &.c-popover--right {
+        .c-popover__container {
+            top: 50%;
+            left: 100%;
+        }
+
+        *:focus + .c-popover__container,
+        &:hover .c-popover__container {
+            transform: translate(0, -50%);
+        }
+    }
+
+    &.c-popover--bottom {
+        .c-popover__container {
+            top: 100%;
+            left: 50%;
+        }
+
+        *:focus + .c-popover__container,
+        &:hover .c-popover__container {
+            transform: translate(-50%, 0);
+        }
+    }
+
+    &.c-popover--left {
+        .c-popover__container {
+            top: 50%;
+            left: 0;
+        }
+
+        *:focus + .c-popover__container,
+        &:hover .c-popover__container {
+            transform: translate(-100%, -50%);
+        }
+    }
+
+    .c-card {
+        @include shadow-variant(.2rem);
+        border: 0;
+    }
+}

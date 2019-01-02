@@ -1,0 +1,52 @@
+/**
+ * @file
+ *** NAV COMPONENT ***
+ *
+ * @see: https://picturepan2.github.io/spectre/components.html#nav
+ */
+
+
+
+
+/**
+ * Add a container element with the `c-nav` class. And add child elements with
+ * the `c-nav__item` class. The `c-nav__item` with the `is-active` class will
+ * be highlighted.
+ */
+
+.c-nav {
+    display: flex;
+    flex-direction: column;
+    margin: $unit-1 0;
+    list-style: none;
+
+    &__item {
+        a {
+            padding: $unit-1 $unit-2;
+            color: $gray-color-dark;
+            text-decoration: none;
+
+            &:focus,
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        &.is-active {
+            & > a {
+                color: darken($gray-color-dark, 10%);
+                font-weight: bold;
+
+                &:focus,
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    & .c-nav {
+        margin-bottom: $unit-2;
+        margin-left: $unit-4;
+    }
+}

@@ -1,0 +1,694 @@
+/**
+ * @file
+ *** FORM ELEMENTS ***
+ *
+ * Forms provide the most common control styles used in forms, including
+ * `input`, `textarea`, `select`, `checkbox`, `radio` and `switch`.
+ * @see: https://picturepan2.github.io/spectre/elements.html#forms
+ */
+
+
+
+
+.c-form__group {
+    &:not(:last-child) {
+        margin-bottom: $layout-spacing;
+    }
+}
+
+fieldset {
+    margin-bottom: $layout-spacing-lg;
+}
+
+legend {
+    margin-bottom: $layout-spacing-lg;
+    font-weight: 500;
+    font-size: $font-size-lg;
+}
+
+
+/**
+ * FORM ELEMENT: LABEL
+ */
+
+.c-form__label {
+    display: block;
+    padding: $control-padding-y + $border-width 0;
+    line-height: $line-height;
+
+    &.label--sm {
+        padding: $control-padding-y-sm + $border-width 0;
+        font-size: $font-size-sm;
+    }
+
+    &.label--lg {
+        padding: $control-padding-y-lg + $border-width 0;
+        font-size: $font-size-lg;
+    }
+}
+
+
+/**
+ * FORM ELEMENT: INPUT
+ */
+
+.c-form__input {
+    @include control-transition;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    display: block;
+    padding: $control-padding-y $control-padding-x;
+    max-width: 100%;
+    width: 100%;
+    height: $control-size;
+    outline: none;
+    border: $border-width solid $border-color-dark;
+    border-radius: $border-radius;
+    background: $bg-color-light;
+    background-image: none;
+    color: $body-font-color;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    &:focus {
+        @include control-shadow();
+        border-color: $primary-color;
+    }
+
+    &::placeholder {
+        color: $gray-color;
+    }
+
+
+    /**
+     * INPUT SIZES
+     * For smaller or larger input and select controls, you could add the
+     * `input--sm` / `input--lg`, `select--sm` / `select--lg` and `label--sm` /
+     * `label--lg` classes to the elements.
+     *
+     * You can add the `input--sm` / `input--lg` classes to the
+     * `input-checkbox`, `input-radio` and `input-switch` to have different
+     * sizes.
+     */
+
+    &.input--sm {
+        padding: $control-padding-y-sm $control-padding-x-sm;
+        height: $control-size-sm;
+        font-size: $font-size-sm;
+    }
+
+    &.input--lg {
+        padding: $control-padding-y-lg $control-padding-x-lg;
+        height: $control-size-lg;
+        font-size: $font-size-lg;
+    }
+
+    &.input--inline {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+
+
+    /**
+     * INPUT TYPES
+     */
+
+    &[type='file'] {
+        height: auto;
+    }
+}
+
+
+/**
+ * FORM ELEMENT: TEXTAREA
+ */
+
+textarea.c-form__input {
+    height: auto;
+}
+
+
+/**
+ * FORM ELEMENT: INPUT HINT
+ */
+
+.c-form__input-hint {
+    margin-top: $unit-1;
+    color: $gray-color;
+    font-size: $font-size-sm;
+
+    .has-success &,
+    .is-success + & {
+        color: $success-color;
+    }
+
+    .has-error &,
+    .is-error + & {
+        color: $error-color;
+    }
+}
+
+
+/**
+ * FORM ELEMENT: SELECT
+ */
+
+.c-form__select {
+    padding: $control-padding-y $control-padding-x;
+    width: 100%;
+    height: $control-size;
+    outline: none;
+    border: $border-width solid $border-color-dark;
+    border-radius: $border-radius;
+    color: inherit;
+    vertical-align: middle;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    appearance: none;
+
+    &[size],
+    &[multiple] {
+        height: auto;
+
+        option {
+            padding: $unit-h $unit-1;
+        }
+    }
+
+    &:not([multiple]):not([size]) {
+        padding-right: $control-icon-size + $control-padding-x;
+        background: #fff
+        url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns="http://www.w3.org/2000/svg"%20viewBox="0%200%204%205"%3E%3Cpath%20fill="%23667189"%20d="M2%200L0%202h4zm0%205L0%203h4z"/%3E%3C/svg%3E')
+        no-repeat right .35rem center/.4rem .5rem;
+    }
+
+    &:focus {
+        @include control-shadow();
+        border-color: $primary-color;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+
+
+    /**
+     * SELECT SIZES
+     */
+
+    &.select--sm {
+        padding: $control-padding-y-sm
+        ($control-icon-size + $control-padding-x-sm)
+        $control-padding-y-sm $control-padding-x-sm;
+        height: $control-size-sm;
+        font-size: $font-size-sm;
+    }
+
+    &.select--lg {
+        padding: $control-padding-y-lg
+        ($control-icon-size + $control-padding-x-lg)
+        $control-padding-y-lg $control-padding-x-lg;
+        height: $control-size-lg;
+        font-size: $font-size-lg;
+    }
+}
+
+
+/**
+ * FORM ICONS
+ * Spectre Form components has Spectre Icons support.
+ * @see: https://picturepan2.github.io/spectre/elements.html#icons
+ *
+ * Add a wrapper with the `has-icon--left` / `has-icon--right` class to
+ * `<input>` element.
+ * And add the icon with `form-icon` class next to the `<input>`.
+ *
+ * You can use the `loading` class for loading or posting state.
+ */
+
+.has-icon--left,
+.has-icon--right {
+    position: relative;
+
+    .c-form__icon {
+        position: absolute;
+        top: 50%;
+        z-index: $zindex-0 + 1;
+        margin: 0 $control-padding-y;
+        width: $control-icon-size;
+        height: $control-icon-size;
+        transform: translateY(-50%);
+    }
+}
+
+.has-icon--left {
+    .c-form__icon {
+        left: $border-width;
+    }
+
+    .c-form__input {
+        padding-left: $control-icon-size + $control-padding-y * 2;
+    }
+}
+
+.has-icon--right {
+    .c-form__icon {
+        right: $border-width;
+    }
+
+    .c-form__input {
+        padding-right: $control-icon-size + $control-padding-y * 2;
+    }
+}
+
+
+/**
+ * FORM ELEMENT: CHECKBOX AND RADIO
+ */
+
+.c-form__checkbox,
+.c-form__radio,
+.c-form__switch {
+    position: relative;
+    display: block;
+    margin: ($control-size - $control-size-sm) / 2 0;
+    padding: (($control-size-sm - $line-height) / 2)
+    $control-padding-x
+    (($control-size-sm - $line-height) / 2)
+    ($control-icon-size + $control-padding-x);
+    min-height: 1.2rem;
+    line-height: $line-height;
+
+    input {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        margin: -1px;
+        width: 1px;
+        height: 1px;
+
+        &:focus + .c-form__icon {
+            @include control-shadow();
+            border-color: $primary-color;
+        }
+
+        &:checked + .c-form__icon {
+            border-color: $primary-color;
+            background: $primary-color;
+        }
+    }
+
+    .c-form__icon {
+        @include control-transition;
+        position: absolute;
+        display: inline-block;
+        border: $border-width solid $border-color-dark;
+        cursor: pointer;
+    }
+
+
+    /**
+     * INPUT CHECKBOX, RADIO AND SWITCH SIZES
+     * Please note you can change checkbox to indeterminate state by setting the
+     * `:indeterminate` property of input checkboxes to `true`.
+     */
+
+    &.input--sm {
+        margin: 0;
+        font-size: $font-size-sm;
+    }
+
+    &.input--lg {
+        margin: ($control-size-lg - $control-size-sm) / 2 0;
+        font-size: $font-size-lg;
+    }
+}
+
+.c-form__checkbox,
+.c-form__radio {
+    .c-form__icon {
+        top: ($control-size-sm - $control-icon-size) / 2;
+        left: 0;
+        width: $control-icon-size;
+        height: $control-icon-size;
+        background: $bg-color-light;
+    }
+
+    input {
+        &:active + .c-form__icon {
+            background: $bg-color-dark;
+        }
+    }
+}
+
+.c-form__checkbox {
+    .c-form__icon {
+        border-radius: $border-radius;
+    }
+
+    input {
+        &:checked + .c-form__icon {
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -8px;
+                margin-left: -4px;
+                width: 8px;
+                height: 12px;
+                border: $border-width-lg solid $light-color;
+                border-top-width: 0;
+                border-left-width: 0;
+                background-clip: padding-box;
+                content: '';
+                transform: rotate(45deg);
+            }
+        }
+
+        &:indeterminate + .c-form__icon {
+            border-color: $primary-color;
+            background: $primary-color;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -1px;
+                margin-left: -5px;
+                width: 10px;
+                height: 2px;
+                background: $bg-color-light;
+                content: '';
+            }
+        }
+    }
+}
+
+.c-form__radio {
+    .c-form__icon {
+        border-radius: 50%;
+    }
+
+    input {
+        &:checked + .c-form__icon {
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: $bg-color-light;
+                content: '';
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+
+
+/**
+ * FORM ELEMENT: SWITCH
+ */
+
+.c-form__switch {
+    padding-left: ($unit-8 + $control-padding-x);
+
+    .c-form__icon {
+        top: ($control-size-sm - $unit-4) / 2 - $border-width;
+        left: 0;
+        width: $unit-8;
+        height: $unit-4 + $border-width * 2;
+        border-radius: $unit-2 + $border-width;
+        background: $gray-color-light;
+        background-clip: padding-box;
+
+        &::before {
+            @include control-transition;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: $unit-4;
+            height: $unit-4;
+            border-radius: 50%;
+            background: $bg-color-light;
+            content: '';
+        }
+    }
+
+    input {
+        &:checked + .c-form__icon {
+            &::before {
+                left: 14px;
+            }
+        }
+
+        &:active + .c-form__icon {
+            &::before {
+                background: $bg-color;
+            }
+        }
+    }
+}
+
+
+/**
+ * FORM ELEMENT: INPUT GROUPS
+ * If you want to attach text and button along with an input, add the
+ * `c-input-group` class to the input container. And add the
+ * `c-input-group__addon` class to the text element and `c-input-group__btn` to
+ * the button element.
+ */
+
+.c-input-group {
+    display: flex;
+
+    .c-input-group__addon {
+        padding: $control-padding-y $control-padding-x;
+        border: $border-width solid $border-color-dark;
+        border-radius: $border-radius;
+        background: $bg-color;
+        white-space: nowrap;
+        line-height: $line-height;
+
+        &.addon--sm {
+            padding: $control-padding-y-sm $control-padding-x-sm;
+            font-size: $font-size-sm;
+        }
+
+        &.addon--lg {
+            padding: $control-padding-y-lg $control-padding-x-lg;
+            font-size: $font-size-lg;
+        }
+    }
+
+    .c-form__input,
+    .c-form__select {
+        flex: 1 1 auto;
+        width: 1%;
+    }
+
+    .c-input-group__btn {
+        z-index: $zindex-0;
+    }
+
+    .c-form__input,
+    .c-form__select,
+    .c-input-group__addon,
+    .c-input-group__btn {
+        &:first-child:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            margin-left: -$border-width;
+            border-radius: 0;
+        }
+
+        &:last-child:not(:first-child) {
+            margin-left: -$border-width;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:focus {
+            z-index: $zindex-0 + 1;
+        }
+    }
+
+    .c-form__select {
+        width: auto;
+    }
+
+    &.input--inline {
+        display: inline-flex;
+    }
+}
+
+
+/**
+ * FORM VALIDATION STATES
+ * To use form validation styles, you can either add `is-success` or `is-error`
+ * class to the controls or add `has-success` or `has-error` class to parent
+ * elements.
+ * Use the `c-form__input-hint` class to provide form validation success and
+ * error messages.
+ *
+ * You can use input `pattern` attribute to validate the value as well.
+ */
+
+.c-form__input,
+.c-form__select {
+    .has-success &,
+    &.is-success {
+        border-color: $success-color;
+
+        &:focus {
+            @include control-shadow($success-color);
+        }
+    }
+
+    .has-error &,
+    &.is-error {
+        border-color: $error-color;
+
+        &:focus {
+            @include control-shadow($error-color);
+        }
+    }
+}
+
+.c-form__checkbox,
+.c-form__radio,
+.c-form__switch {
+    .has-error &,
+    &.is-error {
+        .c-form__icon {
+            border-color: $error-color;
+        }
+
+        input {
+            &:checked + .c-form__icon {
+                border-color: $error-color;
+                background: $error-color;
+            }
+
+            &:focus + .c-form__icon {
+                @include control-shadow($error-color);
+                border-color: $error-color;
+            }
+        }
+    }
+}
+
+.c-form__checkbox {
+    .has-error &,
+    &.is-error {
+        input {
+            &:indeterminate + .c-form__icon {
+                border-color: $error-color;
+                background: $error-color;
+            }
+        }
+    }
+}
+
+
+/**
+ * VALIDATION BASED ON :PLACEHOLDER-SHOWN (EDGE DOESN'T SUPPORT IT YET)
+ */
+
+.c-form__input {
+    &:not(:placeholder-shown) {
+        &:invalid {
+            border-color: $error-color;
+
+            &:focus {
+                @include control-shadow($error-color);
+            }
+
+            & + .c-form__input-hint {
+                color: $error-color;
+            }
+        }
+    }
+}
+
+
+/**
+ * FORM DISABLED AND READONLY
+ * Add the `is-disabled` attribute to the element or `<fieldset>` for a disabled
+ * form components style.
+ */
+
+.c-form__input,
+.c-form__select {
+    &:disabled,
+    &.is-disabled {
+        background-color: $bg-color-dark;
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+.c-form__input {
+    &[readonly] {
+        background-color: $bg-color;
+    }
+}
+
+input {
+    &:disabled,
+    &.is-disabled {
+        & + .c-form__icon {
+            background: $bg-color-dark;
+            opacity: .5;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.c-form__switch {
+    input {
+        &:disabled,
+        &.is-disabled {
+            & + .c-form__icon::before {
+                background: $bg-color-light;
+            }
+        }
+    }
+}
+
+
+/**
+ * FORM HORIZONTAL
+ * If you want to have a horizontal form, add the `c-form--horizontal` class to
+ * the `<form>` container.
+ * And add the `u-col-<1-12>` and `u-col-xs/sm/lg/xl-<1-12>` class to the child
+ * elements for responsive form row layout.
+ */
+
+.c-form--horizontal {
+    padding: $layout-spacing 0;
+
+    .c-form__group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+/**
+ * FORM INLINE
+ * You can add the `c-form--inline` class to the form components to make them
+ * inline in one row.
+ */
+
+.c-form--inline {
+    display: inline-block;
+}

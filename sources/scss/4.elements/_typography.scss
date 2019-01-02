@@ -1,0 +1,156 @@
+/**
+ * @file
+ *** TYPOGRAPHY ***
+ *
+ * Typography sets default styles for headings, paragraphs, semantic text,
+ * blockquote and lists elements.
+ * @see: https://picturepan2.github.io/spectre/elements.html#typography
+ */
+
+
+
+
+/**
+ * HEADINGS
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: .5em;
+    color: $light-color;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+h1,
+.h1 {
+    font-size: 4.2rem;
+}
+
+h2,
+.h2 {
+    font-size: $font-size-lg;
+}
+
+h3,
+.h3 {
+    font-size: 2.4rem;
+}
+
+h4,
+.h4 {
+    font-size: 1.2rem;
+}
+h5,
+.h5 {
+    font-size: 1rem;
+}
+
+h6,
+.h6 {
+    font-size: .8rem;
+}
+
+
+/**
+ * PARAGRAPHS
+ */
+
+p {
+    margin: 0 0 $line-height;
+}
+
+
+/**
+ * SEMANTIC TEXT ELEMENTS
+ */
+
+a,
+ins,
+u {
+    text-decoration-skip: ink edges;
+}
+
+abbr[title] {
+    border-bottom: $border-width dotted;
+    text-decoration: none;
+    cursor: help;
+}
+
+kbd {
+    @include label-base;
+    @include label-variant($light-color, $dark-color);
+    font-size: $font-size-sm;
+}
+
+mark {
+    @include label-variant($body-font-color, $highlight-color);
+    padding: .05rem;
+    border-radius: $border-radius;
+}
+
+
+/**
+ * BLOCKQUOTE
+ */
+
+blockquote {
+    margin-left: 0;
+    padding: $unit-2 $unit-4;
+    border-left: $border-width-lg solid $border-color;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * LISTS
+ */
+
+ul,
+ol {
+    margin: $unit-4 0 $unit-4 $unit-4;
+    padding: 0;
+
+    ul,
+    ol {
+        margin: $unit-4 0 $unit-4 $unit-4;
+    }
+
+    li {
+        margin-top: $unit-2;
+    }
+}
+
+ul {
+    list-style: disc inside;
+
+    ul {
+        list-style-type: circle;
+    }
+}
+
+ol {
+    list-style: decimal inside;
+
+    ol {
+        list-style-type: lower-alpha;
+    }
+}
+
+dl {
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0;
+    }
+}

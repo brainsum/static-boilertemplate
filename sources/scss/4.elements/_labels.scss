@@ -1,0 +1,59 @@
+/**
+ * @file
+ *** LABEL ELEMENT ***
+ *
+ * Labels are formatted text tags for highlighted, informative information.
+ * @see: https://picturepan2.github.io/spectre/elements.html#labels
+ */
+
+
+
+
+/**
+ * Add the `label` class to `<span>` or `<small>` elements.
+ */
+
+.label {
+    @include label-base;
+    @include label-variant(lighten($body-font-color, 5%), $bg-color-dark);
+    display: inline-block;
+
+
+    /**
+     * LABEL ROUNDED
+     * Add the another class `label-rounded` to have rounded labels.
+     */
+
+    &.label--rounded {
+        padding-right: .4rem;
+        padding-left: .4rem;
+        border-radius: 5rem;
+    }
+
+
+    /**
+     * LABEL COLORS
+     * You can add another class `label--primary`, `label--secondary`,
+     * `label--success`, `label--warning` and `label--error` for colored labels.
+     */
+
+    &.label--primary {
+        @include label-variant($light-color, $primary-color);
+    }
+
+    &.label--secondary {
+        @include label-variant($primary-color, $secondary-color);
+    }
+
+    &.label--success {
+        @include label-variant($light-color, $success-color);
+    }
+
+    &.label--warning {
+        @include label-variant($light-color, $warning-color);
+    }
+
+    &.label--error {
+        @include label-variant($light-color, $error-color);
+    }
+}

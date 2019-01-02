@@ -1,0 +1,396 @@
+/**
+ * @file
+ *** ACTION ICONS ***
+ */
+
+
+
+
+/**
+ * ICON RESIZE
+ */
+
+.icon-resize-horiz,
+.icon-resize-vert {
+    &::before,
+    &::after {
+        width: .45em;
+        height: .45em;
+        border: $icon-border-width solid currentColor;
+        border-right: 0;
+        border-bottom: 0;
+        content: '';
+    }
+
+    &::before {
+        transform: translate(-50%, -90%) rotate(45deg);
+    }
+
+    &::after {
+        transform: translate(-50%, -10%) rotate(225deg);
+    }
+}
+
+.icon-resize-horiz {
+    &::before {
+        transform: translate(-90%, -50%) rotate(-45deg);
+    }
+
+    &::after {
+        transform: translate(-10%, -50%) rotate(135deg);
+    }
+}
+
+
+/**
+ * ICON MORE
+ */
+
+.icon-more-horiz,
+.icon-more-vert {
+    &::before {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: -.4em 0, .4em 0;
+        content: '';
+    }
+}
+
+.icon-more-vert {
+    &::before {
+        box-shadow: 0 -.4em, 0 .4em;
+    }
+}
+
+
+/**
+ * ICON PLUS, MINUS, CROSS
+ */
+
+.icon-plus,
+.icon-minus,
+.icon-cross {
+    &::before {
+        width: 100%;
+        height: $icon-border-width;
+        background: currentColor;
+        content: '';
+    }
+}
+
+.icon-plus,
+.icon-cross {
+    &::after {
+        width: $icon-border-width;
+        height: 100%;
+        background: currentColor;
+        content: '';
+    }
+}
+
+.icon-cross {
+    &::before {
+        width: 100%;
+    }
+
+    &::after {
+        height: 100%;
+    }
+
+    &::before,
+    &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+
+/**
+ * ICON CHECK
+ */
+
+.icon-check {
+    &::before {
+        width: .9em;
+        height: .5em;
+        border: $icon-border-width solid currentColor;
+        border-top: 0;
+        border-right: 0;
+        content: '';
+        transform: translate(-50%, -75%) rotate(-45deg);
+    }
+}
+
+
+/**
+ * ICON STOP
+ */
+
+.icon-stop {
+    border: $icon-border-width solid currentColor;
+    border-radius: 50%;
+
+    &::before {
+        width: 1em;
+        height: $icon-border-width;
+        background: currentColor;
+        content: '';
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+
+/**
+ * ICON SHUTDOWN
+ */
+
+.icon-shutdown {
+    border: $icon-border-width solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+
+    &::before {
+        top: .1em;
+        width: $icon-border-width;
+        height: .5em;
+        background: currentColor;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON REFRESH
+ */
+
+.icon-refresh {
+    &::before {
+        width: 1em;
+        height: 1em;
+        border: $icon-border-width solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        content: '';
+    }
+
+    &::after {
+        top: 20%;
+        left: 80%;
+        width: 0;
+        height: 0;
+        border: .2em solid currentColor;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON SEARCH
+ */
+
+.icon-search {
+    &::before {
+        top: 5%;
+        left: 5%;
+        width: .75em;
+        height: .75em;
+        border: $icon-border-width solid currentColor;
+        border-radius: 50%;
+        content: '';
+        transform: translate(0, 0) rotate(45deg);
+    }
+
+    &::after {
+        top: 80%;
+        left: 80%;
+        width: .4em;
+        height: $icon-border-width;
+        background: currentColor;
+        content: '';
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+
+/**
+ * ICON EDIT
+ */
+
+.icon-edit {
+    &::before {
+        width: .85em;
+        height: .4em;
+        border: $icon-border-width solid currentColor;
+        content: '';
+        transform: translate(-40%, -60%) rotate(-45deg);
+    }
+
+    &::after {
+        top: 95%;
+        left: 5%;
+        width: 0;
+        height: 0;
+        border: .15em solid currentColor;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        content: '';
+        transform: translate(0, -100%);
+    }
+}
+
+
+/**
+ * ICON DELETE
+ */
+
+.icon-delete {
+    &::before {
+        top: 60%;
+        width: .75em;
+        height: .75em;
+        border: $icon-border-width solid currentColor;
+        border-top: 0;
+        border-bottom-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+        content: '';
+    }
+
+    &::after {
+        top: $icon-border-width/2;
+        width: .5em;
+        height: $icon-border-width;
+        background: currentColor;
+        box-shadow: -.25em .2em, .25em .2em;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON SHARE
+ */
+
+.icon-share {
+    border: $icon-border-width solid currentColor;
+    border-top: 0;
+    border-right: 0;
+    border-radius: $border-radius;
+
+    &::before {
+        top: .25em;
+        left: 100%;
+        width: .4em;
+        height: .4em;
+        border: $icon-border-width solid currentColor;
+        border-top: 0;
+        border-left: 0;
+        content: '';
+        transform: translate(-125%, -50%) rotate(-45deg);
+    }
+
+    &::after {
+        width: .6em;
+        height: .5em;
+        border: $icon-border-width solid currentColor;
+        border-right: 0;
+        border-bottom: 0;
+        border-radius: 75% 0;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON FLAG
+ */
+
+.icon-flag {
+    &::before {
+        left: 15%;
+        width: $icon-border-width;
+        height: 1em;
+        background: currentColor;
+        content: '';
+    }
+
+    &::after {
+        top: 35%;
+        left: 60%;
+        width: .8em;
+        height: .65em;
+        border: $icon-border-width solid currentColor;
+        border-left: 0;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+        content: '';
+    }
+}
+
+
+/**
+ * ICON BOOKMARK
+ */
+
+.icon-bookmark {
+    &::before {
+        width: .8em;
+        height: .9em;
+        border: $icon-border-width solid currentColor;
+        border-bottom: 0;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        content: '';
+    }
+
+    &::after {
+        width: .5em;
+        height: .5em;
+        border: $icon-border-width solid currentColor;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: $border-radius;
+        content: '';
+        transform: translate(-50%, 35%) rotate(-45deg) skew(15deg, 15deg);
+    }
+}
+
+
+/**
+ * ICON DOWNLOAD & UPLOAD
+ */
+
+.icon-download,
+.icon-upload {
+    border-bottom: $icon-border-width solid currentColor;
+
+    &::before {
+        width: .5em;
+        height: .5em;
+        border: $icon-border-width solid currentColor;
+        border-right: 0;
+        border-bottom: 0;
+        content: '';
+        transform: translate(-50%, -60%) rotate(-135deg);
+    }
+
+    &::after {
+        top: 40%;
+        width: $icon-border-width;
+        height: .6em;
+        background: currentColor;
+        content: '';
+    }
+}
+
+.icon-upload {
+    &::before {
+        transform: translate(-50%, -60%) rotate(45deg);
+    }
+
+    &::after {
+        top: 50%;
+    }
+}

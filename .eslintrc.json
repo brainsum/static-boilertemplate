@@ -1,0 +1,37 @@
+{
+    "env": {
+        "browser": true,
+        "es6": false,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "prettier/prettier": "error",
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "array-element-newline": [
+            "error",
+            "consistent"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

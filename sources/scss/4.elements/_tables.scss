@@ -1,0 +1,82 @@
+/**
+ * @file
+ *** TABLE ELEMENT ***
+ *
+ * Tables include default styles for tables and data sets.
+ * @see: https://picturepan2.github.io/spectre/elements.html#tables
+ */
+
+
+
+
+/**
+ * Add the table class to any `<table>` element. The class will add padding,
+ * border and emphasized table header. Use the `table--striped` class to
+ * `<table>` to add zebra striped style. For hoverable table rows, you can add
+ * the `has-hover` class to enable hover style.
+ *
+ * Use the active class to make `<tr>` element highlighted.
+ */
+
+.table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    @if $rtl == true {
+        text-align: right;
+    } @else {
+        text-align: left;
+    }
+
+    &.table--striped {
+        tbody {
+            tr:nth-of-type(odd) {
+                background: $bg-color;
+            }
+        }
+    }
+
+    &,
+    &.table--striped {
+        tbody {
+            tr {
+                &.active {
+                    background: $bg-color-dark;
+                }
+            }
+        }
+    }
+
+    &.has-hover {
+        tbody {
+            tr {
+                &:hover {
+                    background: $bg-color-dark;
+                }
+            }
+        }
+    }
+
+
+    /**
+     * TABLES WITH HORIZONTAL SCROLLBAR
+     */
+
+    &.has-scroll {
+        display: block;
+        overflow-x: auto;
+        padding-bottom: .75rem;
+        white-space: nowrap;
+    }
+
+    td,
+    th {
+        padding: $unit-3 $unit-2;
+        border-bottom: $border-width solid $border-color;
+    }
+
+    th {
+        border-bottom-width: $border-width-lg;
+    }
+}

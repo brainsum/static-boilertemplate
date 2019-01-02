@@ -1,0 +1,59 @@
+/**
+ * @file
+ *** CARDS OBJECT ***
+ *
+ * Cards are flexible content containers.
+ * @see: https://picturepan2.github.io/spectre/components.html#cards
+ */
+
+
+
+
+/**
+ * Add a container element with the `o-card` class. And add child elements with
+ * the `o-card__image`, `o-card__header`, `o-card__body` and/or `o-card__footer`
+ * classes. The `o-card__image` can be placed in any position.
+ */
+
+.o-card {
+    display: flex;
+    flex-direction: column;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    background: $bg-color-light;
+
+    &__header,
+    &__body,
+    &__footer {
+        padding: $layout-spacing-lg;
+        padding-bottom: 0;
+
+        &:last-child {
+            padding-bottom: $layout-spacing-lg;
+        }
+    }
+
+    &__body {
+        flex: 1 1 auto;
+    }
+
+    &__image {
+        padding-top: $layout-spacing-lg;
+
+        &:first-child {
+            padding-top: 0;
+
+            img {
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+            }
+        }
+
+        &:last-child {
+            img {
+                border-bottom-right-radius: $border-radius;
+                border-bottom-left-radius: $border-radius;
+            }
+        }
+    }
+}

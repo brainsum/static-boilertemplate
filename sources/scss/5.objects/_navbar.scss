@@ -1,0 +1,38 @@
+/**
+ * @file
+ *** NAVBAR OBJECT ***
+ *
+ * @see: https://picturepan2.github.io/spectre/layout.html#navbar
+ */
+
+
+
+
+.o-navbar {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &__section {
+        display: flex;
+        align-items: center;
+        flex: 1 0 0;
+
+        &:not(:first-child):last-child {
+            justify-content: flex-end;
+        }
+    }
+
+    &__center {
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+
+    &__brand {
+        text-decoration: none;
+        font-weight: 500;
+        font-size: $font-size-lg;
+    }
+}

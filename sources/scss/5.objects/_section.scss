@@ -1,0 +1,87 @@
+/**
+ * @file
+ *** SECTION OBJECT ***
+ *
+ */
+
+
+
+
+.o-section {
+    &:not(.c-footer__section) {
+        &__header {
+            margin: 0 auto $unit-16;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        h2 {
+            margin-bottom: $unit-6;
+
+            &::after {
+                display: block;
+                margin: $unit-6 auto $unit-8;
+                width: 10rem;
+                height: 2px;
+                border-radius: 2px;
+                background-image: linear-gradient(90deg, $success-color, $warning-color, $error-color);
+                content: '';
+            }
+        }
+
+        &.t-main--special {
+            text-align: center;
+        }
+
+        &:not(.t-main--special) {
+            h2::after {
+                @include media(md) {
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        &__content {
+            text-align: justify;
+            columns: $unit-8 * 10 2;
+            column-gap: $unit-8;
+        }
+
+        &__footer {
+            @include media(md) {
+                margin-top: $unit-16;
+            }
+        }
+    }
+
+    &__actions {
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: $unit-8;
+        list-style: none;
+
+        @include media(sm) {
+            flex-direction: row;
+        }
+
+        &.o-section__actions--special {
+            justify-content: center;
+        }
+
+        li {
+            margin: 0;
+
+            &:not(:first-child) {
+                padding-top: $unit-4;
+
+                @include media(sm) {
+                    padding-top: 0;
+                    padding-left: $unit-4;
+                }
+            }
+        }
+    }
+}

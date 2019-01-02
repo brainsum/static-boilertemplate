@@ -1,0 +1,285 @@
+/**
+ * @file
+ *** BUTTONS COMPONENT ***
+ *
+ * Buttons include simple button styles for actions in different types and
+ * sizes.
+ * @see: https://picturepan2.github.io/spectre/elements.html#buttons
+ */
+
+
+
+
+/**
+ * Add the btn class to `<a>`, `<input>` or `<button>` elements for a default
+ * button.
+ * There are classes `btn-primary` and `btn-link` for predefined primary and
+ * link buttons. (see below)
+ */
+
+.c-btn {
+    @include control-transition;
+    display: inline-block;
+    padding: $control-padding-y $control-padding-x;
+    height: $control-size;
+    outline: none;
+    border: $border-width solid $primary-color;
+    border-radius: $border-radius;
+    background: $bg-color-light;
+    color: $primary-color;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: $font-size;
+    line-height: $line-height;
+    cursor: pointer;
+
+    appearance: none;
+    user-select: none;
+
+    &:focus {
+        @include control-shadow();
+    }
+
+    &:focus,
+    &:hover {
+        border-color: $primary-color-dark;
+        background: $secondary-color;
+        text-decoration: none;
+        color: $primary-color;
+    }
+
+
+    /**
+     * BUTTON STATES
+     * Add the `active` class for active button state style.
+     */
+
+    &:active,
+    &.is-active {
+        border-color: darken($primary-color-dark, 5%);
+        background: $primary-color-dark;
+        color: $light-color;
+        text-decoration: none;
+
+
+        // A button with the `loading` class can show loading indicator.
+        &.is-loading {
+            &::after {
+                border-bottom-color: $light-color;
+                border-left-color: $light-color;
+            }
+        }
+    }
+
+
+    /**
+     * BUTTON DISABLED
+     * Add the `disabled` class or the disabled attribute for disabled button
+     * state style.
+     */
+
+    &[disabled],
+    &:disabled,
+    &.is-disabled {
+        opacity: .5;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &.c-btn {
+        /**
+         * BUTTON PRIMARY
+         */
+
+        &--primary {
+            border-color: $primary-color-dark;
+            background: $primary-color;
+            color: $light-color;
+
+            &:focus,
+            &:hover {
+                border-color: darken($primary-color-dark, 5%);
+                background: darken($primary-color-dark, 2%);
+                color: $light-color;
+            }
+
+            &:active,
+            &.is-active {
+                border-color: darken($primary-color-dark, 7%);
+                background: darken($primary-color-dark, 4%);
+                color: $light-color;
+            }
+
+            &.is-loading {
+                &::after {
+                    border-bottom-color: $light-color;
+                    border-left-color: $light-color;
+                }
+            }
+        }
+
+
+        /**
+         * BUTTON COLORS
+         * Add the `btn-success` or `btn-error` class for success (green) or error
+         * (red) button color. If you need more button colors, please use button
+         * mixins to create your own button color variants.
+         */
+
+        &--success {
+            @include button-variant($success-color);
+        }
+
+        &--error {
+            @include button-variant($error-color);
+        }
+
+
+        /**
+         * BUTTON LINK
+         */
+
+        &--link {
+            border-color: transparent;
+            background: transparent;
+            color: $link-color;
+
+            &:focus,
+            &:hover,
+            &:active,
+            &.active {
+                color: $link-color-dark;
+            }
+        }
+
+
+        /**
+         * BUTTON SIZES
+         * Add the `btn-sm` or `btn-lg` class for small or large button size.
+         */
+
+        &--sm {
+            padding: $control-padding-y-sm $control-padding-x-sm;
+            height: $control-size-sm;
+            font-size: $font-size-sm;
+        }
+
+        &--lg {
+            padding: $control-padding-y-lg $control-padding-x-lg;
+            height: $control-size-lg;
+            font-size: $font-size-lg;
+        }
+
+
+        /**
+         * BUTTON BLOCK
+         * Add the `btn-block` class for a full-width button.
+         */
+
+        &--block {
+            display: block;
+            width: 100%;
+        }
+
+
+        /**
+         * BUTTON ACTION
+         * You could use the `btn-action` class for a square button, or add another
+         * `circle` class for a round button, which is often used as a Float Action
+         * Button (FAB).
+         */
+
+        &--action {
+            padding-right: 0;
+            padding-left: 0;
+            width: $control-size;
+
+            &.c-btn {
+                &--sm {
+                    width: $control-size-sm;
+                }
+
+                &--lg {
+                    width: $control-size-lg;
+                }
+            }
+        }
+
+
+        /**
+         * BUTTON CLEAR
+         */
+
+        &--clear {
+            margin-right: -2px;
+            margin-left: $unit-1;
+            padding: 0;
+            width: $unit-4;
+            height: $unit-4;
+            border: 0;
+            background: transparent;
+            color: currentColor;
+            text-decoration: none;
+            line-height: $unit-4;
+            opacity: 1;
+
+            &:hover {
+                opacity: .95;
+            }
+
+            &::before {
+                content: '\2715';
+            }
+        }
+    }
+}
+
+
+/**
+ * BUTTON GROUPS
+ * If you want to use buttons as a group, add the `btn-group` class to the
+ * container.
+ * You can add the` btn-group-block` class for a full-width button group.
+ */
+
+.c-btn-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+
+    .c-btn {
+        flex: 1 0 auto;
+
+        &:first-child:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            margin-left: -$border-width;
+            border-radius: 0;
+        }
+
+        &:last-child:not(:first-child) {
+            margin-left: -$border-width;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:focus,
+        &:hover,
+        &:active,
+        &.active {
+            z-index: $zindex-0;
+        }
+    }
+
+    &.c-btn-group-block {
+        display: flex;
+
+        .c-btn {
+            flex: 1 0 0;
+        }
+    }
+}

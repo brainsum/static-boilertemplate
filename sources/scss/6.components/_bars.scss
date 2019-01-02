@@ -1,0 +1,107 @@
+/**
+ * @file
+ *** BARS COMPONENT ***
+ *
+ * Bars represent the progress of a task or the value within the known range.
+ * Bars are custom components for displaying HTML5 `<progress>`, `<meter>` and
+ * input range elements.
+ * @see: https://picturepan2.github.io/spectre/components.html#bars
+ */
+
+
+
+
+
+/**
+ * Add a container element with the `c-bar` class. And add child elements with
+ * the `c-bar__item` class. The width percentage value is needed for every
+ * `c-bar__item`.
+ *
+ * There is the `c-bar--sm` class for thinner Bars. Also, you could use
+ * Tooltips component for any bar-item.
+ * @see: https://picturepan2.github.io/spectre/components.html#tooltips
+ */
+
+.c-bar {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: $unit-4;
+    border-radius: $border-radius;
+    background: $bg-color-dark;
+
+    &.c-bar--sm {
+        height: $unit-1;
+    }
+
+    // TODO: attr() support
+    &__item {
+        position: relative;
+        display: block;
+        flex-shrink: 0;
+        width: 0;
+        height: 100%;
+        background: $primary-color;
+        color: $light-color;
+        text-align: center;
+        font-size: $font-size-sm;
+        line-height: $unit-4;
+
+        &:first-child {
+            border-top-left-radius: $border-radius;
+            border-bottom-left-radius: $border-radius;
+        }
+
+        &:last-child {
+            flex-shrink: 1;
+            border-top-right-radius: $border-radius;
+            border-bottom-right-radius: $border-radius;
+        }
+    }
+
+
+    /**
+     * Slider bar
+     * You can add the `c-bar--slider` class to the Bars container. And add
+     * child elements with the `c-bar--slider__item class and
+     * `c-bar--slider__btn` inside `c-bar--slider__item`. You need to set the
+     * `c-bar--slider__item` width manually to have the slider point.
+     *
+     * If there are two `c-bar--slider__item` divs in one `c-bar--slider`, you
+     * will have a range slider.
+     */
+
+    &--slider {
+        position: relative;
+        margin: $layout-spacing 0;
+        height: $border-width-lg;
+
+        &__item {
+            position: absolute;
+            left: 0;
+            padding: 0;
+
+            &:not(:last-child):first-child {
+                z-index: $zindex-0;
+                background: $bg-color-dark;
+            }
+        }
+
+        &__btn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            padding: 0;
+            width: $unit-3;
+            height: $unit-3;
+            border: 0;
+            border-radius: 50%;
+            background: $primary-color;
+            transform: translate(50%, -50%);
+
+            &:active {
+                box-shadow: 0 0 0 .1rem $primary-color;
+            }
+        }
+    }
+}

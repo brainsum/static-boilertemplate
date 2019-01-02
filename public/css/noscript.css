@@ -1,0 +1,18 @@
+/**
+ * @file
+ * NOSCRIPT
+ */
+/* Header */
+body.is-preload .c-header.c-header--alt > * {
+  opacity: 1;
+}
+
+body.is-preload .c-header.c-header--alt .c-logo {
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibm9zY3JpcHQuY3NzIiwic291cmNlcyI6WyJub3NjcmlwdC5zY3NzIl0sIm1hcHBpbmdzIjoiQUFBQTs7O0dBR0c7QUFLSCxZQUFZO0FBR1IsQUFFVyxJQUZQLEFBQUEsV0FBVyxDQURuQixTQUFTLEFBRUEsY0FBYyxHQUNSLENBQUMsQ0FBQztFQUNELE9BQU8sRUFBRSxDQUFFO0NBQ2Q7O0FBSlQsQUFNUSxJQU5KLEFBQUEsV0FBVyxDQURuQixTQUFTLEFBRUEsY0FBYyxDQUtYLE9BQU8sQ0FBQztFQUNKLFNBQVMsRUFBRSxJQUFLO0NBQ25CIiwibmFtZXMiOltdfQ== */
+
+/*# sourceMappingURL=noscript.css.map */

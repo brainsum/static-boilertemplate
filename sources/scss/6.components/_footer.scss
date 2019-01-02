@@ -1,0 +1,37 @@
+/**
+ * @file
+ *** FOOTER COMPONENT ***
+ */
+
+
+
+
+.c-footer {
+    margin: 0 -#{$unit-8};
+    padding: $unit-12 $unit-8 $unit-4;
+
+    @include media(md) {
+        padding: $unit-16 $unit-16 $unit-8;
+    }
+
+    .o-section.o-column {
+        padding: 0 $unit-8 $unit-8;
+
+        @include media(md) {
+            padding-bottom: 0;
+        }
+    }
+
+    .c-btn {
+        border-color: $light-color;
+        background-color: transparent;
+        color: $light-color;
+
+        &:focus,
+        &:hover {
+            border-color: $primary-color-dark;
+            background: $secondary-color;
+            color: $primary-color;
+        }
+    }
+}

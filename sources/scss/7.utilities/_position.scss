@@ -1,0 +1,56 @@
+/**
+ * @file
+ *** POSITION UTILITY ***
+ */
+
+
+
+
+.u-clearfix {
+    @include clearfix;
+}
+
+.u-float-left {
+    float: left !important;
+}
+
+.u-float-right {
+    float: right !important;
+}
+
+.u-relative {
+    position: relative !important;
+}
+
+.u-absolute {
+    position: absolute !important;
+}
+
+.u-fixed {
+    position: fixed !important;
+}
+
+.u-centered {
+    display: block;
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.u-flex-centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/**
+ * SPACING
+ */
+
+@include margin-variant(0, 0);
+@include margin-variant(1, $unit-1);
+@include margin-variant(2, $unit-2);
+@include padding-variant(0, 0);
+@include padding-variant(1, $unit-1);
+@include padding-variant(2, $unit-2);

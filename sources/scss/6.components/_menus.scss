@@ -1,0 +1,80 @@
+/**
+ * @file
+ *** MENU COMPONENT ***
+ *
+ * Menus are vertical list of links or buttons for actions and navigation.
+ * @see: https://picturepan2.github.io/spectre/components.html#menu
+ */
+
+
+
+
+/**
+ * Add a container element with the `c-menu` class. And add child elements with
+ * the `c-menu__item` class. You can separate menu items with a divider.
+ */
+
+.c-menu {
+    @include shadow-variant(.05rem);
+    z-index: $zindex-3;
+    margin: 0;
+    padding: $unit-2;
+    min-width: $control-width-xs;
+    border-radius: $border-radius;
+    background: $bg-color-light;
+    list-style: none;
+    transform: translateY($layout-spacing-sm);
+
+    &.c-menu__nav {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    &__item {
+        margin-top: 0;
+        padding: 0 $unit-2;
+        text-decoration: none;
+
+        user-select: none;
+
+        & > a {
+            display: block;
+            margin: 0 (-$unit-2);
+            padding: $unit-1 $unit-2;
+            border-radius: $border-radius;
+            color: inherit;
+            text-decoration: none;
+
+            &:focus,
+            &:hover {
+                background: $secondary-color;
+                color: $primary-color;
+            }
+
+            &:active,
+            &.is-active {
+                background: $secondary-color;
+                color: $primary-color;
+            }
+        }
+
+        .form-checkbox,
+        .form-radio,
+        .form-switch {
+            margin: $unit-h 0;
+        }
+
+        & + .menu-item {
+            margin-top: $unit-1;
+        }
+    }
+
+    &__badge {
+        float: right;
+        padding: $unit-1 0;
+
+        .c-btn {
+            margin-top: -$unit-h;
+        }
+    }
+}

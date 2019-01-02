@@ -1,0 +1,125 @@
+/**
+ * @file
+ *** Modals component ***
+ *
+ * Modals are flexible dialog prompts.
+ * @see: https://picturepan2.github.io/spectre/components.html#modals
+ */
+
+
+
+
+/**
+ * Add a container element with the `c-modal` class. And add a real container
+ * `c-modal__container` and overlay `c-modal__overlay` inside it.
+ * You can add child elements with the `c-modal__header`, `c-modal__body` and
+ * `c-modal__footer` - any or all of them.
+ *
+ * To make a modal appear with JavaScript, add the `is-active` class to the
+ * modal container.
+ */
+
+.c-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    padding: $layout-spacing;
+    opacity: 0;
+
+    &:target,
+    &.is-active {
+        z-index: $zindex-4;
+        display: flex;
+        opacity: 1;
+
+        .c-modal {
+            &__overlay {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                background: rgba($bg-color, .75);
+                cursor: default;
+            }
+
+            &__container {
+                z-index: $zindex-0;
+                animation: slide-down .2s ease 1;
+            }
+        }
+    }
+
+
+    /**
+     * Use the `c-modal--sm` class for a smaller modal dialog.
+     * The container max width is 320px.
+     */
+
+    &.c-modal--sm {
+        .c-modal__container {
+            padding: 0 $unit-2;
+            max-width: $control-width-sm;
+        }
+    }
+
+
+    /**
+     * Use the `c-modal--lg` class for a full size modal. The container max
+     * width is 960px.
+     */
+
+    &.c-modal--lg {
+        .c-modal {
+            &__overlay {
+                background: $bg-color-light;
+            }
+
+            &__container {
+                max-width: $control-width-lg;
+                box-shadow: none;
+            }
+        }
+    }
+
+    &__container {
+        @include shadow-variant(.2rem);
+        display: flex;
+        flex-direction: column;
+        padding: 0 $unit-4;
+        max-width: $control-width-md;
+        max-height: 75vh;
+        width: 100%;
+        border-radius: $border-radius;
+        background: $bg-color-light;
+
+        &.c-modal--fullheight {
+            max-height: 100vh;
+        }
+
+        .c-modal {
+            &__header {
+                padding: $unit-4;
+                color: $dark-color;
+            }
+
+            &__body {
+                position: relative;
+                overflow-y: auto;
+                padding: $unit-4;
+            }
+
+            &__footer {
+                padding: $unit-4;
+                text-align: right;
+            }
+        }
+    }
+}
