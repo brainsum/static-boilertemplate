@@ -1,32 +1,29 @@
 /**
  * @file
- *** SOCIALS COMPONENT ***
+ * Socials component
  */
 
-
-
-
 .c-social {
-    margin: 0;
-    padding-right: $unit-3;
+  margin: 0;
+  padding-right: $unit-3;
 
-    &__container {
-        margin-top: 0;
-        margin-bottom: 0;
-        list-style: none;
-    }
+  &__container {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: $unit-10;
-        height: $unit-10;
-        border: 1px solid;
-        border-radius: 50%;
-    }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $unit-10;
+    height: $unit-10;
+    border: 1px solid;
+    border-radius: 50%;
+  }
 
-    .icon {
-        fill: $light-color;
-    }
+  .icon {
+    fill: $light-color;
+  }
 }

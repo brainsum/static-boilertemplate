@@ -1,15 +1,12 @@
 /**
  * @file
- *** CLEARFIX MIXIN ***
+ * Clearfix mixin
  */
 
-
-
-
 @mixin clearfix {
-    &::after {
-        display: table;
-        clear: both;
-        content: '';
-    }
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
 }

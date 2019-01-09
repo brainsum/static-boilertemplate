@@ -1,69 +1,66 @@
 /**
  * @file
- *** BUTTON VARIANT MIXIN ***
+ * Button variant mixin
  */
 
-
-
-
 @mixin button-variant($color: $primary-color) {
-    border-color: darken($color, 3%);
-    background: $color;
+  color: $light-color;
+  border-color: darken($color, 3%);
+  background: $color;
+
+  &:focus {
+    @include control-shadow($color);
+  }
+
+  &:focus,
+  &:hover {
     color: $light-color;
+    border-color: darken($color, 5%);
+    background: darken($color, 2%);
+  }
 
-    &:focus {
-        @include control-shadow($color);
-    }
+  &:active,
+  &.active {
+    color: $light-color;
+    border-color: darken($color, 10%);
+    background: darken($color, 7%);
+  }
 
-    &:focus,
-    &:hover {
-        border-color: darken($color, 5%);
-        background: darken($color, 2%);
-        color: $light-color;
+  &.loading {
+    &::after {
+      border-bottom-color: $light-color;
+      border-left-color: $light-color;
     }
-
-    &:active,
-    &.active {
-        border-color: darken($color, 10%);
-        background: darken($color, 7%);
-        color: $light-color;
-    }
-
-    &.loading {
-        &::after {
-            border-bottom-color: $light-color;
-            border-left-color: $light-color;
-        }
-    }
+  }
 }
 
 @mixin button-outline-variant($color: $primary-color) {
-    border-color: $color;
-    background: $light-color;
+  color: $color;
+  border-color: $color;
+  background: $light-color;
+
+  &:focus {
+    @include control-shadow($color);
+  }
+
+  &:focus,
+  &:hover {
     color: $color;
+    border-color: darken($color, 2%);
+    background: lighten($color, 50%);
+  }
 
-    &:focus {
-        @include control-shadow($color);
-    }
+  &:active,
+  &.active {
+    color: $light-color;
+    border-color: darken($color, 5%);
+    background: $color;
+  }
 
-    &:focus,
-    &:hover {
-        border-color: darken($color, 2%);
-        background: lighten($color, 50%);
-        color: $color;
+  &.loading {
+    &::after {
+      border-bottom-color: $color;
+      border-left-color: $color;
     }
-
-    &:active,
-    &.active {
-        border-color: darken($color, 5%);
-        background: $color;
-        color: $light-color;
-    }
-
-    &.loading {
-        &::after {
-            border-bottom-color: $color;
-            border-left-color: $color;
-        }
-    }
+  }
 }

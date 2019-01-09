@@ -1,23 +1,20 @@
 /**
  * @file
- *** RESPONSIVE ***
+ * Responsive
  *
  * Media query mixin from breakpoint Sass map and custom breakpoints.
  */
 
-
-
-
 @mixin media($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
-            @content;
-        }
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
     }
+  }
 
-    @else {
-        @media (min-width: $breakpoint) {
-            @content;
-        }
+  @else {
+    @media (min-width: $breakpoint) {
+      @content;
     }
+  }
 }

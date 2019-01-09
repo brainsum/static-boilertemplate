@@ -1,75 +1,68 @@
 /**
  * @file
- *** TILES OBJECT ***
+ * Tiles object
  *
  * Tiles are repeatable or embeddable information blocks.
  * @see: https://picturepan2.github.io/spectre/components.html#tiles
  */
-
-
-
 
 /**
  * Add a container with the `o-tile` class. And add child elements with the
  * `o-tile__icon`, `o-tile__content` or/and `o-tile__action` classes.
  * The `o-tile__icon and `o-tile__action` are optional.
  */
-
 .o-tile {
-    display: flex;
-    align-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
+  align-content: space-between;
 
-    &__icon,
-    &__action {
-        flex: 0 0 auto;
+  &__icon,
+  &__action {
+    flex: 0 0 auto;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+
+    &:not(:first-child) {
+      padding-left: $unit-2;
     }
 
-    &__content {
-        flex: 1 1 auto;
+    &:not(:last-child) {
+      padding-right: $unit-2;
+    }
+  }
 
-        &:not(:first-child) {
-            padding-left: $unit-2;
-        }
+  /**
+   * There are `o-tile__title` and `o-tile__subtitle` classes for title and
+   * subtitle text styles.
+   */
+  &__title,
+  &__subtitle {
+    line-height: $line-height;
+  }
 
-        &:not(:last-child) {
-            padding-right: $unit-2;
-        }
+  /**
+   * Compact tiles
+   * There is compact version of Tiles component, which is often used as
+   * contact and file info blocks.
+   *
+   * Add the `o-tile--centered` class to the container tile.
+   * The `o-tile__icon`, `o-tile__content` and `o-tile__action` will be
+   * vertically centered.
+   */
+  &.o-tile--centered {
+    align-items: center;
+
+    .o-tile__content {
+      overflow: hidden;
     }
 
+    .o-tile__title,
+    .o-tile__subtitle {
+      @include text-ellipsis;
 
-    /**
-     * There are `o-tile__title` and `o-tile__subtitle` classes for title and
-     * subtitle text styles.
-     */
-
-    &__title,
-    &__subtitle {
-        line-height: $line-height;
+      margin-bottom: 0;
     }
-
-
-    /**
-     * Compact tiles
-     * There is compact version of Tiles component, which is often used as
-     * contact and file info blocks.
-     *
-     * Add the `o-tile--centered` class to the container tile.
-     * The `o-tile__icon`, `o-tile__content` and `o-tile__action` will be
-     * vertically centered.
-     */
-
-    &.o-tile--centered {
-        align-items: center;
-
-        .o-tile__content {
-            overflow: hidden;
-        }
-
-        .o-tile__title,
-        .o-tile__subtitle {
-            @include text-ellipsis;
-            margin-bottom: 0;
-        }
-    }
+  }
 }

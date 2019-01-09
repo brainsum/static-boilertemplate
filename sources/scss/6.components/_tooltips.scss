@@ -1,13 +1,10 @@
 /**
  * @file
- *** Tooltips component ***
+ * Tooltips component
  *
  * Tooltips provide context information labels that appear on hover and focus.
  * @see: https://picturepan2.github.io/spectre/components.html#tooltips
  */
-
-
-
 
 /**
  * Add the `c-tooltip` class and the `data-tooltip` attribute, which contains
@@ -19,88 +16,87 @@
  *  - `c-tooltip--left`.
  * By default, the tooltip appears above the element.
  */
-
 .c-tooltip {
-    position: relative;
+  position: relative;
 
+  &::after {
+    position: absolute;
+    z-index: $zindex-3;
+    bottom: 100%;
+    left: 50%;
+    display: block;
+    overflow: hidden;
+    max-width: $control-width-sm;
+    padding: $unit-1 $unit-2;
+    content: attr(data-tooltip);
+    transition: all 0.2s ease;
+    transform: translate(-50%, $unit-2);
+    white-space: pre;
+    text-overflow: ellipsis;
+    pointer-events: none;
+    opacity: 0;
+    color: $light-color;
+    border-radius: $border-radius;
+    background: rgba($dark-color, 0.9);
+    font-size: $font-size-sm;
+  }
+
+  &:focus,
+  &:hover {
     &::after {
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        z-index: $zindex-3;
-        display: block;
-        overflow: hidden;
-        padding: $unit-1 $unit-2;
-        max-width: $control-width-sm;
-        border-radius: $border-radius;
-        background: rgba($dark-color, .9);
-        color: $light-color;
-        content: attr(data-tooltip);
-        text-overflow: ellipsis;
-        white-space: pre;
-        font-size: $font-size-sm;
-        opacity: 0;
-        transition: all .2s ease;
-        transform: translate(-50%, $unit-2);
-        pointer-events: none;
+      transform: translate(-50%, -$unit-1);
+      opacity: 1;
+    }
+  }
+
+  &[disabled],
+  &.is-disabled {
+    pointer-events: auto;
+  }
+
+  &.c-tooltip--right {
+    &::after {
+      bottom: 50%;
+      left: 100%;
+      transform: translate(-$unit-1, 50%);
     }
 
     &:focus,
     &:hover {
-        &::after {
-            opacity: 1;
-            transform: translate(-50%, -$unit-1);
-        }
+      &::after {
+        transform: translate($unit-1, 50%);
+      }
+    }
+  }
+
+  &.c-tooltip--bottom {
+    &::after {
+      top: 100%;
+      bottom: auto;
+      transform: translate(-50%, -$unit-2);
     }
 
-    &[disabled],
-    &.is-disabled {
-        pointer-events: auto;
+    &:focus,
+    &:hover {
+      &::after {
+        transform: translate(-50%, $unit-1);
+      }
+    }
+  }
+
+  &.c-tooltip--left {
+    &::after {
+      right: 100%;
+      bottom: 50%;
+      left: auto;
+      transform: translate($unit-2, 50%);
     }
 
-    &.c-tooltip--right {
-        &::after {
-            bottom: 50%;
-            left: 100%;
-            transform: translate(-$unit-1, 50%);
-        }
-
-        &:focus,
-        &:hover {
-            &::after {
-                transform: translate($unit-1, 50%);
-            }
-        }
+    &:focus,
+    &:hover {
+      &::after {
+        transform: translate(-$unit-1, 50%);
+      }
     }
-
-    &.c-tooltip--bottom {
-        &::after {
-            top: 100%;
-            bottom: auto;
-            transform: translate(-50%, -$unit-2);
-        }
-
-        &:focus,
-        &:hover {
-            &::after {
-                transform: translate(-50%, $unit-1);
-            }
-        }
-    }
-
-    &.c-tooltip--left {
-        &::after {
-            right: 100%;
-            bottom: 50%;
-            left: auto;
-            transform: translate($unit-2, 50%);
-        }
-
-        &:focus,
-        &:hover {
-            &::after {
-                transform: translate(-$unit-1, 50%);
-            }
-        }
-    }
+  }
 }

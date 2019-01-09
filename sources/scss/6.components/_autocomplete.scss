@@ -1,58 +1,56 @@
 /**
  * @file
- *** AUTOCOMPLETE COMPONTENT ***
+ * Autocomplete compontent
  *
  * Autocomplete form component provides suggestions while you type. It is often
  * used for tags and contacts input.
  * @see: https://picturepan2.github.io/spectre/experimentals.html#autocomplete
  */
 
-
-
-
 .c-form-autocomplete {
-    position: relative;
+  position: relative;
 
-    &__input {
-        display: flex;
-        align-content: flex-start;
-        flex-wrap: wrap;
-        padding: $unit-h;
-        min-height: $unit-8;
-        height: auto;
+  &__input {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: auto;
+    min-height: $unit-8;
+    padding: $unit-h;
 
-        &.is-focused {
-            @include control-shadow();
-            border-color: $primary-color;
-        }
+    &.is-focused {
+      @include control-shadow();
 
-        .form-input {
-            display: inline-block;
-            flex: 1 0 auto;
-            margin: $unit-h;
-            width: auto;
-            height: $unit-6;
-            border-color: transparent;
-            box-shadow: none;
-            line-height: $unit-4;
-        }
+      border-color: $primary-color;
     }
 
-    &__menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+    .form-input {
+      display: inline-block;
+      flex: 1 0 auto;
+      width: auto;
+      height: $unit-6;
+      margin: $unit-h;
+      border-color: transparent;
+      box-shadow: none;
+      line-height: $unit-4;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  &.c-form-autocomplete--oneline {
+    .c-form-autocomplete__input {
+      overflow-x: auto;
+      flex-wrap: nowrap;
     }
 
-    &.c-form-autocomplete--oneline {
-        .c-form-autocomplete__input {
-            overflow-x: auto;
-            flex-wrap: nowrap;
-        }
-
-        .c-form-autocomplete__chip {
-            flex: 1 0 auto;
-        }
+    .c-form-autocomplete__chip {
+      flex: 1 0 auto;
     }
+  }
 }

@@ -1,16 +1,13 @@
 /**
  * @file
- * COPYRIGHT COMPONENT
+ * Copyright component
  */
 
-
-
-
 .c-copyright {
-    font-size: $font-size-sm;
-    margin: $unit-8 0 $unit-6;
+  margin: $unit-8 0 $unit-6;
+  font-size: $font-size-sm;
 
-    @include media(md) {
-        text-align: center;
-    }
+  @include media(md) {
+    text-align: center;
+  }
 }

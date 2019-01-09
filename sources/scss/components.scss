@@ -1,6 +1,6 @@
 /**
  * @file
- *** SMACSS: COMPONENTS ***
+ * SMACSS: components
  *
  * Discrete, reusable UI elements.
  * Import all custom components from ./components/ subdirectory
@@ -9,22 +9,18 @@
  * ITCSS: components
  */
 
-
-
-
 /**
- * IMPORTS
+ * Imports
+ *
  * First import our custom variables and mixins
  */
-
 @import 'index';
 
-
 /**
- * COMPONENTS
+ * Components
+ *
  * @see: https://picturepan2.github.io/spectre/components.html
  */
-
 // @import '6.components/accordions';
 // @import '6.components/avatars';
 // @import '6.components/badges';
@@ -58,12 +54,11 @@
 // @import '6.components/toasts';
 // @import '6.components/tooltips';
 
-
 /**
- * EXPERIMENTALS
+ * Experimentals
+ *
  * @see: https://picturepan2.github.io/spectre/experimentals.html
  */
-
 // @import '6.components/autocomplete';
 // @import '6.components/calendars';
 // @import '6.components/carousels';

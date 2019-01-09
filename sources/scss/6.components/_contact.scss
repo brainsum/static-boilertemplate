@@ -1,21 +1,18 @@
 /**
  * @file
- * CONTACT COMPONENT
+ * Contact component
  */
 
-
-
-
 .c-contact {
-    margin-top: 0;
-    margin-bottom: $unit-8;
+  margin-top: 0;
+  margin-bottom: $unit-8;
 
-    &__label,
-    &__content {
-        margin-bottom: $unit-3;
-    }
+  &__label,
+  &__content {
+    margin-bottom: $unit-3;
+  }
 
-    &__label {
-        color: $light-color;
-    }
+  &__label {
+    color: $light-color;
+  }
 }

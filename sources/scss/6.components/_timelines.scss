@@ -1,67 +1,64 @@
 /**
  * @file
- *** Timelines component ***
+ * Timelines component
  *
  * Timelines are ordered sequences of activities.
  * @see: https://picturepan2.github.io/spectre/experimentals.html#timelines
  */
 
-
-
-
 .c-timeline {
-    &__item {
-        position: relative;
-        display: flex;
-        margin-bottom: $unit-6;
+  &__item {
+    position: relative;
+    display: flex;
+    margin-bottom: $unit-6;
+
+    &::before {
+      position: absolute;
+      top: $unit-6;
+      left: 11px;
+      width: 2px;
+      height: 100%;
+      content: "";
+      background: $border-color;
+    }
+
+    &--left {
+      flex: 0 0 auto;
+    }
+
+    &__content {
+      flex: 1 1 auto;
+      padding: 2px 0 2px $layout-spacing-lg;
+    }
+
+    &__icon {
+      display: block;
+      width: $unit-6;
+      height: $unit-6;
+      text-align: center;
+      color: $light-color;
+      border-radius: 50%;
+
+      &::before {
+        position: absolute;
+        top: $unit-2;
+        left: $unit-2;
+        display: block;
+        width: $unit-2;
+        height: $unit-2;
+        content: "";
+        border: $border-width-lg solid $primary-color;
+        border-radius: 50%;
+      }
+
+      &.icon--lg {
+        background: $primary-color;
+        line-height: $line-height;
 
         &::before {
-            position: absolute;
-            top: $unit-6;
-            left: 11px;
-            width: 2px;
-            height: 100%;
-            background: $border-color;
-            content: '';
+          content: none;
         }
-
-        &--left {
-            flex: 0 0 auto;
-        }
-
-        &__content {
-            flex: 1 1 auto;
-            padding: 2px 0 2px $layout-spacing-lg;
-        }
-
-        &__icon {
-            display: block;
-            width: $unit-6;
-            height: $unit-6;
-            border-radius: 50%;
-            color: $light-color;
-            text-align: center;
-
-            &::before {
-                position: absolute;
-                top: $unit-2;
-                left: $unit-2;
-                display: block;
-                width: $unit-2;
-                height: $unit-2;
-                border: $border-width-lg solid $primary-color;
-                border-radius: 50%;
-                content: '';
-            }
-
-            &.icon--lg {
-                background: $primary-color;
-                line-height: $line-height;
-
-                &::before {
-                    content: none;
-                }
-            }
-        }
+      }
     }
+  }
 }

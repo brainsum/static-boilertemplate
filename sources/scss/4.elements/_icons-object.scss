@@ -1,228 +1,194 @@
 /**
  * @file
- *** OBJECT ICONS ***
+ * Object icons
  */
 
-
-
-
-/**
- * ICON TIME
- */
-
+// Icon time
 .icon-time {
+  border: $icon-border-width solid currentColor;
+  border-radius: 50%;
+
+  &::before {
+    width: $icon-border-width;
+    height: 0.4em;
+    content: "";
+    transform: translate(-50%, -75%);
+    background: currentColor;
+  }
+
+  &::after {
+    width: $icon-border-width;
+    height: 0.3em;
+    content: "";
+    transform: translate(-50%, -75%) rotate(90deg);
+    transform-origin: 50% 90%;
+    background: currentColor;
+  }
+}
+
+// Icon mail
+.icon-mail {
+  &::before {
+    width: 1em;
+    height: 0.8em;
+    content: "";
+    border: $icon-border-width solid currentColor;
+    border-radius: $border-radius;
+  }
+
+  &::after {
+    width: 0.5em;
+    height: 0.5em;
+    content: "";
+    transform: translate(-50%, -90%) rotate(-45deg) skew(10deg, 10deg);
+    border: $icon-border-width solid currentColor;
+    border-top: 0;
+    border-right: 0;
+  }
+}
+
+// Icon people
+.icon-people {
+  &::before {
+    top: 25%;
+    width: 0.45em;
+    height: 0.45em;
+    content: "";
     border: $icon-border-width solid currentColor;
     border-radius: 50%;
+  }
 
-    &::before {
-        width: $icon-border-width;
-        height: .4em;
-        background: currentColor;
-        content: '';
-        transform: translate(-50%, -75%);
-    }
-
-    &::after {
-        width: $icon-border-width;
-        height: .3em;
-        background: currentColor;
-        content: '';
-        transform: translate(-50%, -75%) rotate(90deg);
-        transform-origin: 50% 90%;
-    }
+  &::after {
+    top: 75%;
+    width: 0.9em;
+    height: 0.4em;
+    content: "";
+    border: $icon-border-width solid currentColor;
+    border-radius: 50% 50% 0 0;
+  }
 }
 
-
-/**
- * ICON MAIL
- */
-
-.icon-mail {
-    &::before {
-        width: 1em;
-        height: .8em;
-        border: $icon-border-width solid currentColor;
-        border-radius: $border-radius;
-        content: '';
-    }
-
-    &::after {
-        width: .5em;
-        height: .5em;
-        border: $icon-border-width solid currentColor;
-        border-top: 0;
-        border-right: 0;
-        content: '';
-        transform: translate(-50%, -90%) rotate(-45deg) skew(10deg, 10deg);
-    }
-}
-
-
-/**
- * ICON PEOPLE
- */
-
-.icon-people {
-    &::before {
-        top: 25%;
-        width: .45em;
-        height: .45em;
-        border: $icon-border-width solid currentColor;
-        border-radius: 50%;
-        content: '';
-    }
-
-    &::after {
-        top: 75%;
-        width: .9em;
-        height: .4em;
-        border: $icon-border-width solid currentColor;
-        border-radius: 50% 50% 0 0;
-        content: '';
-    }
-}
-
-
-/**
- * ICON MESSAGE
- */
-
+// Icon message
 .icon-message {
+  border: $icon-border-width solid currentColor;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: $border-radius;
+
+  &::before {
+    top: 40%;
+    left: 65%;
+    width: 0.7em;
+    height: 0.8em;
+    content: "";
+    border: $icon-border-width solid currentColor;
+    border-top: 0;
+    border-left: 0;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  &::after {
+    top: 100%;
+    left: 10%;
+    width: $icon-border-width;
+    height: 0.3em;
+    content: "";
+    transform: translate(0, -90%) rotate(45deg);
+    border-radius: $border-radius;
+    background: currentColor;
+  }
+}
+
+// Icon photo
+.icon-photo {
+  border: $icon-border-width solid currentColor;
+  border-radius: $border-radius;
+
+  &::before {
+    top: 35%;
+    left: 35%;
+    width: 0.25em;
+    height: 0.25em;
+    content: "";
+    border: $icon-border-width solid currentColor;
+    border-radius: 50%;
+  }
+
+  &::after {
+    left: 60%;
+    width: 0.5em;
+    height: 0.5em;
+    content: "";
+    transform: translate(-50%, 25%) rotate(-45deg);
+    border: $icon-border-width solid currentColor;
+    border-bottom: 0;
+    border-left: 0;
+  }
+}
+
+// Icon link
+.icon-link {
+  &::before,
+  &::after {
+    width: 0.75em;
+    height: 0.5em;
+    content: "";
     border: $icon-border-width solid currentColor;
     border-right: 0;
-    border-bottom: 0;
-    border-radius: $border-radius;
+    border-radius: 5em 0 0 5em;
+  }
 
-    &::before {
-        top: 40%;
-        left: 65%;
-        width: .7em;
-        height: .8em;
-        border: $icon-border-width solid currentColor;
-        border-top: 0;
-        border-left: 0;
-        border-bottom-right-radius: $border-radius;
-        content: '';
-    }
+  &::before {
+    transform: translate(-70%, -45%) rotate(-45deg);
+  }
 
-    &::after {
-        top: 100%;
-        left: 10%;
-        width: $icon-border-width;
-        height: .3em;
-        border-radius: $border-radius;
-        background: currentColor;
-        content: '';
-        transform: translate(0, -90%) rotate(45deg);
-    }
+  &::after {
+    transform: translate(-30%, -55%) rotate(135deg);
+  }
 }
 
-
-/**
- * ICON PHOTO
- */
-
-.icon-photo {
-    border: $icon-border-width solid currentColor;
-    border-radius: $border-radius;
-
-    &::before {
-        top: 35%;
-        left: 35%;
-        width: .25em;
-        height: .25em;
-        border: $icon-border-width solid currentColor;
-        border-radius: 50%;
-        content: '';
-    }
-
-    &::after {
-        left: 60%;
-        width: .5em;
-        height: .5em;
-        border: $icon-border-width solid currentColor;
-        border-bottom: 0;
-        border-left: 0;
-        content: '';
-        transform: translate(-50%, 25%) rotate(-45deg);
-    }
-}
-
-
-/**
- * ICON LINK
- */
-
-.icon-link {
-    &::before,
-    &::after {
-        width: .75em;
-        height: .5em;
-        border: $icon-border-width solid currentColor;
-        border-right: 0;
-        border-radius: 5em 0 0 5em;
-        content: '';
-    }
-
-    &::before {
-        transform: translate(-70%, -45%) rotate(-45deg);
-    }
-
-    &::after {
-        transform: translate(-30%, -55%) rotate(135deg);
-    }
-}
-
-
-/**
- * ICON LOCATION
- */
-
+// Icon location
 .icon-location {
-    &::before {
-        width: .8em;
-        height: .8em;
-        border: $icon-border-width solid currentColor;
-        border-radius: 50% 50% 50% 0;
-        content: '';
-        transform: translate(-50%, -60%) rotate(-45deg);
-    }
+  &::before {
+    width: 0.8em;
+    height: 0.8em;
+    content: "";
+    transform: translate(-50%, -60%) rotate(-45deg);
+    border: $icon-border-width solid currentColor;
+    border-radius: 50% 50% 50% 0;
+  }
 
-    &::after {
-        width: .2em;
-        height: .2em;
-        border: $icon-border-width solid currentColor;
-        border-radius: 50%;
-        content: '';
-        transform: translate(-50%, -80%);
-    }
-}
-
-
-/**
- * ICON EMOJI
- */
-
-.icon-emoji {
+  &::after {
+    width: 0.2em;
+    height: 0.2em;
+    content: "";
+    transform: translate(-50%, -80%);
     border: $icon-border-width solid currentColor;
     border-radius: 50%;
+  }
+}
 
-    &::before {
-        width: .1em;
-        height: .1em;
-        border-radius: 50%;
-        box-shadow: -.17em -.15em, .17em -.15em;
-        content: '';
-    }
+// Icon emoji
+.icon-emoji {
+  border: $icon-border-width solid currentColor;
+  border-radius: 50%;
 
-    &::after {
-        width: .5em;
-        height: .5em;
-        border: $icon-border-width solid currentColor;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-radius: 50%;
-        content: '';
-        transform: translate(-50%, -40%) rotate(-135deg);
-    }
+  &::before {
+    width: 0.1em;
+    height: 0.1em;
+    content: "";
+    border-radius: 50%;
+    box-shadow: -0.17em -0.15em, 0.17em -0.15em;
+  }
+
+  &::after {
+    width: 0.5em;
+    height: 0.5em;
+    content: "";
+    transform: translate(-50%, -40%) rotate(-135deg);
+    border: $icon-border-width solid currentColor;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+  }
 }

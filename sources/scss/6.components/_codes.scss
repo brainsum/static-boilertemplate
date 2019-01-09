@@ -1,13 +1,10 @@
 /**
  * @file
- *** CODE COMPONENT ***
+ * Code component
  *
  * Code is used for multiline code snippets.
  * @see: https://picturepan2.github.io/spectre/elements.html#code
  */
-
-
-
 
 /**
  * For inline code, you can use the `<code>`. For details please go to
@@ -16,28 +13,27 @@
  * class as a container, and add `<code>` inside it.
  * The `data-lang` attribute is rendered as the language name in the top right.
  */
-
 .c-code {
-    position: relative;
-    border-radius: $border-radius;
-    color: $body-font-color;
+  position: relative;
+  color: $body-font-color;
+  border-radius: $border-radius;
 
-    &::before {
-        position: absolute;
-        top: $unit-h;
-        right: $layout-spacing;
-        color: $gray-color;
-        content: attr(data-lang);
-        font-size: $font-size-sm;
-    }
+  &::before {
+    position: absolute;
+    top: $unit-h;
+    right: $layout-spacing;
+    content: attr(data-lang);
+    color: $gray-color;
+    font-size: $font-size-sm;
+  }
 
-    code {
-        display: block;
-        overflow-x: auto;
-        padding: 1rem;
-        width: 100%;
-        background: $bg-color;
-        color: inherit;
-        line-height: 1.5;
-    }
+  code {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    padding: 1rem;
+    color: inherit;
+    background: $bg-color;
+    line-height: 1.5;
+  }
 }

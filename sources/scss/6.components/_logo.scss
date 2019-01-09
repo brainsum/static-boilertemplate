@@ -1,46 +1,44 @@
 /**
  * @file
- *** LOGO COMPONENT ***
+ * Logo component
  */
 
-
-
-
 .c-logo {
+  display: block;
+  margin: 0 0 ($unit-9 * 0.75) 0;
+  transition:
+    opacity 1.25s ease,
+    transform 0.5s ease;
+  transition-delay: 0s;
+
+  .c-logo__image {
+    position: relative;
     display: block;
-    margin: 0 0 ($unit-9 * .75) 0;
-    transition: opacity 1.25s ease,
-    transform .5s ease;
-    transition-delay: 0s;
+    max-width: 75%;
+    margin: 0 auto;
 
-    .c-logo__image {
-        display: block;
-        margin: 0 auto;
-        max-width: 75%;
-        position: relative;
-
-        &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            width: 9.6rem;
-            height: 9.6rem;
-            background: $warning-color;
-            border-radius: 50%;
-            left: 50%;
-            top: 50%;
-            transform: translate(-90%, -50%);
-        }
-
-        svg {
-            fill: $light-color;
-            position: relative;
-            width: 12rem;
-            height: 12rem;
-        }
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 9.6rem;
+      height: 9.6rem;
+      content: "";
+      transform: translate(-90%, -50%);
+      border-radius: 50%;
+      background: $warning-color;
     }
 
-    body.is-preload & {
-        transform: scale(.8), rotate(-30deg);
+    svg {
+      position: relative;
+      width: 12rem;
+      height: 12rem;
+      fill: $light-color;
     }
+  }
+
+  body.is-preload & {
+    transform: scale(0.8), rotate(-30deg);
+  }
 }

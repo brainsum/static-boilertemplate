@@ -1,6 +1,6 @@
 /**
  * @file
- *** SMACSS: LAYOUT ***
+ * SMACSS: layout
  *
  * Design-patterns, and macro arrangement of a web page,
  * including any grid systems.
@@ -8,32 +8,24 @@
  * ITCSS: objects
  */
 
-
-
-
 /**
- * IMPORTS
+ * Imports
  * First import our custom variables and mixins
  */
-
 @import 'index';
 
-
 /**
- * OBJECTS
+ * Objects
  * @see: https://picturepan2.github.io/spectre/layout.html
  */
-
 // @import '5.objects/cards';
 @import '5.objects/layout';
 // @import '5.objects/navbar';
 @import '5.objects/section';
 // @import '5.objects/tiles';
 
-
 /**
- * EXPERIMENTALS
+ * Experimentals
  * @see: https://picturepan2.github.io/spectre/experimentals.html
  */
-
 // @import '5.objects/off-canvas';

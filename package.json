@@ -1,28 +1,43 @@
 {
   "name": "brainsum-boilertemplate",
   "version": "1.0.0",
-  "description": "Gulp, SASS and Pug boilertemplate for static apps with sasslint, csscomb, eslint and browsersync",
+  "description": "Gulp / Laravel Mix (webpack), SASS and HTML5 boilertemplate for static apps with sasslint, csscomb, eslint and browsersync",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brainsum/static-boilertemplate.git"
+  },
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "reload": "gulp browser-sync",
+    "sass-dev": "gulp sass",
+    "sass-prod": "gulp sass:production",
+    "sass-lint": "gulp sass:lint",
+    "js": "gulp scripts"
   },
   "author": "Krisztian Pinter <kpinter@brainsum.com>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.17.5",
+    "csscomb": "^4.2.0",
     "eslint": "^5.11.1",
-    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-css-purge": "^3.0.8",
     "gulp-csscomb": "^3.0.8",
+    "gulp-eslint": "^5.0.0",
     "gulp-npm-dist": "^1.0.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-stylelint": "^8.0.0",
     "gulp-uglify": "^3.0.1",
-    "prettier": "^1.15.3",
     "pump": "^3.0.0",
-    "spectre.css": "^0.5.3"
+    "spectre.css": "^0.5.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.4.4"
   },
   "dependencies": {
     "jquery": "^3.3.1",

@@ -1,60 +1,57 @@
 /**
  * @file
- *** DISPLAY UTILITY ***
+ * Display utility
  */
 
-
-
-
 .u-block {
-    display: block;
+  display: block;
 }
 
 .u-inline {
-    display: inline;
+  display: inline;
 }
 
 .u-inline-block {
-    display: inline-block;
+  display: inline-block;
 }
 
 .u-flex {
-    display: flex;
+  display: flex;
 }
 
 .u-inline-flex {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .u-none,
 .u-hide {
-    display: none !important;
+  display: none !important;
 }
 
 .u-visible {
-    visibility: visible;
+  visibility: visible;
 }
 
 .u-invisible {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .u-text-hide {
-    border: 0;
-    background: transparent;
-    color: transparent;
-    text-shadow: none;
-    font-size: 0;
-    line-height: 0;
+  color: transparent;
+  border: 0;
+  background: transparent;
+  text-shadow: none;
+  font-size: 0;
+  line-height: 0;
 }
 
 .u-text-assistive {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    border: 0;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }

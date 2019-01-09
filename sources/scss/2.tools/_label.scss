@@ -1,27 +1,17 @@
 /**
  * @file
- *** LABEL MIXINS ***
+ * Label mixins
  */
 
-
-
-
-/**
- * LABEL BASE STYLE
- */
-
+// Label base style
 @mixin label-base {
-    padding: .1rem .2rem;
-    border-radius: $border-radius;
-    line-height: 1.2;
+  padding: 0.1rem 0.2rem;
+  border-radius: $border-radius;
+  line-height: 1.2;
 }
 
-
-/**
- * LABEL VARIANT
- */
-
+// Label variant
 @mixin label-variant($color: $light-color, $bg-color: $primary-color) {
-    background: $bg-color;
-    color: $color;
+  color: $color;
+  background: $bg-color;
 }

@@ -1,80 +1,70 @@
 /**
  * @file
- * POSITION TOOLS
+ * Position tools
  */
 
-
-
-
-/**
- * MARGIN UTILITY MIXIN
- */
-
+// Margin utility mixin
 @mixin margin-variant($id: 1, $size: $unit-1) {
-    .u-margin--#{$id} {
-        margin: $size !important;
-    }
+  .u-margin--#{$id} {
+    margin: $size !important;
+  }
 
-    .u-margin--bottom-#{$id} {
-        margin-bottom: $size !important;
-    }
+  .u-margin--bottom-#{$id} {
+    margin-bottom: $size !important;
+  }
 
-    .u-margin--left-#{$id} {
-        margin-left: $size !important;
-    }
+  .u-margin--left-#{$id} {
+    margin-left: $size !important;
+  }
 
-    .u-margin--right-#{$id} {
-        margin-right: $size !important;
-    }
+  .u-margin--right-#{$id} {
+    margin-right: $size !important;
+  }
 
-    .u-margin--top-#{$id} {
-        margin-top: $size !important;
-    }
+  .u-margin--top-#{$id} {
+    margin-top: $size !important;
+  }
 
-    .u-margin--x-#{$id} {
-        margin-right: $size !important;
-        margin-left: $size !important;
-    }
+  .u-margin--x-#{$id} {
+    margin-right: $size !important;
+    margin-left: $size !important;
+  }
 
-    .u-margin--y-#{$id} {
-        margin-top: $size !important;
-        margin-bottom: $size !important;
-    }
+  .u-margin--y-#{$id} {
+    margin-top: $size !important;
+    margin-bottom: $size !important;
+  }
 }
 
-
-/**
- * PADDING UTILITY MIXIN
- */
-
+// Padding utility mixin
 @mixin padding-variant($id: 1, $size: $unit-1) {
-    .u-padding--#{$id} {
-        padding: $size !important;
-    }
+  .u-padding--#{$id} {
+    padding: $size !important;
+  }
 
-    .u-padding--bottom-#{$id} {
-        padding-bottom: $size !important;
-    }
+  .u-padding--bottom-#{$id} {
+    padding-bottom: $size !important;
+  }
 
-    .u-padding--left-#{$id} {
-        padding-left: $size !important;
-    }
+  .u-padding--left-#{$id} {
+    padding-left: $size !important;
+  }
 
-    .u-padding--right-#{$id} {
-        padding-right: $size !important;
-    }
+  .u-padding--right-#{$id} {
+    padding-right: $size !important;
+  }
 
-    .u-padding--top-#{$id} {
-        padding-top: $size !important;
-    }
+  .u-padding--top-#{$id} {
+    padding-top: $size !important;
+  }
 
-    .u-padding--x-#{$id} {
-        padding-right: $size !important;
-        padding-left: $size !important;
-    }
+  .u-padding--x-#{$id} {
+    padding-right: $size !important;
+    padding-left: $size !important;
+  }
 
-    .u-padding--y-#{$id} {
-        padding-top: $size !important;
-        padding-bottom: $size !important;
-    }
+  .u-padding--y-#{$id} {
+    padding-top: $size !important;
+    padding-bottom: $size !important;
+  }
 }

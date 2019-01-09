@@ -1,33 +1,23 @@
 /**
  * @file
- *** COLORS UTILITY ***
+ * Colors utility
  */
 
+// Text colors
+@include text-color-variant(".u-text--primary", $primary-color);
+@include text-color-variant(".u-text--secondary", $secondary-color-dark);
+@include text-color-variant(".u-text--gray", $gray-color);
+@include text-color-variant(".u-text--light", $light-color);
+@include text-color-variant(".u-text--dark", $body-font-color);
+@include text-color-variant(".u-text--success", $success-color);
+@include text-color-variant(".u-text--warning", $warning-color);
+@include text-color-variant(".u-text--error", $error-color);
 
-
-
-/**
- * TEXT COLORS
- */
-
-@include text-color-variant('.u-text--primary', $primary-color);
-@include text-color-variant('.u-text--secondary', $secondary-color-dark);
-@include text-color-variant('.u-text--gray', $gray-color);
-@include text-color-variant('.u-text--light', $light-color);
-@include text-color-variant('.u-text--dark', $body-font-color);
-@include text-color-variant('.u-text--success', $success-color);
-@include text-color-variant('.u-text--warning', $warning-color);
-@include text-color-variant('.u-text--error', $error-color);
-
-
-/**
- *** BACKGROUND COLORS ***
- */
-
-@include bg-color-variant('.u-bg--primary', $primary-color);
-@include bg-color-variant('.u-bg--secondary', $secondary-color);
-@include bg-color-variant('.u-bg--dark', $dark-color);
-@include bg-color-variant('.u-bg--gray', $bg-color);
-@include bg-color-variant('.u-bg--success', $success-color);
-@include bg-color-variant('.u-bg--warning', $warning-color);
-@include bg-color-variant('.u-bg--error', $error-color);
+// Background colors
+@include bg-color-variant(".u-bg--primary", $primary-color);
+@include bg-color-variant(".u-bg--secondary", $secondary-color);
+@include bg-color-variant(".u-bg--dark", $dark-color);
+@include bg-color-variant(".u-bg--gray", $bg-color);
+@include bg-color-variant(".u-bg--success", $success-color);
+@include bg-color-variant(".u-bg--warning", $warning-color);
+@include bg-color-variant(".u-bg--error", $error-color);

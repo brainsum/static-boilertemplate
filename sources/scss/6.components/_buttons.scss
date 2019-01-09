@@ -1,14 +1,11 @@
 /**
  * @file
- *** BUTTONS COMPONENT ***
+ * Buttons component
  *
  * Buttons include simple button styles for actions in different types and
  * sizes.
  * @see: https://picturepan2.github.io/spectre/elements.html#buttons
  */
-
-
-
 
 /**
  * Add the btn class to `<a>`, `<input>` or `<button>` elements for a default
@@ -16,270 +13,250 @@
  * There are classes `btn-primary` and `btn-link` for predefined primary and
  * link buttons. (see below)
  */
-
 .c-btn {
-    @include control-transition;
-    display: inline-block;
-    padding: $control-padding-y $control-padding-x;
-    height: $control-size;
-    outline: none;
-    border: $border-width solid $primary-color;
-    border-radius: $border-radius;
-    background: $bg-color-light;
-    color: $primary-color;
-    vertical-align: middle;
-    text-align: center;
+  @include control-transition;
+
+  display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: $control-size;
+  padding: $control-padding-y $control-padding-x;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  color: $primary-color;
+  border: $border-width solid $primary-color;
+  border-radius: $border-radius;
+  outline: none;
+  background: $bg-color-light;
+  font-size: $font-size;
+  line-height: $line-height;
+
+  &:focus {
+    @include control-shadow();
+  }
+
+  &:focus,
+  &:hover {
     text-decoration: none;
-    white-space: nowrap;
-    font-size: $font-size;
-    line-height: $line-height;
-    cursor: pointer;
+    color: $primary-color;
+    border-color: $primary-color-dark;
+    background: $secondary-color;
+  }
 
-    appearance: none;
-    user-select: none;
+  /**
+   * Button states
+   *
+   * Add the `active` class for active button state style.
+   */
+  &:active,
+  &.is-active {
+    text-decoration: none;
+    color: $light-color;
+    border-color: darken($primary-color-dark, 5%);
+    background: $primary-color-dark;
 
-    &:focus {
-        @include control-shadow();
+    // A button with the `loading` class can show loading indicator.
+    &.is-loading {
+      &::after {
+        border-bottom-color: $light-color;
+        border-left-color: $light-color;
+      }
     }
+  }
 
-    &:focus,
-    &:hover {
-        border-color: $primary-color-dark;
-        background: $secondary-color;
-        text-decoration: none;
-        color: $primary-color;
-    }
+  /**
+   * Button disabled
+   * Add the `disabled` class or the disabled attribute for disabled button
+   * state style.
+   */
+  &[disabled],
+  &:disabled,
+  &.is-disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 
+  &.c-btn {
+    // Button primary
+    &--primary {
+      color: $light-color;
+      border-color: $primary-color-dark;
+      background: $primary-color;
 
-    /**
-     * BUTTON STATES
-     * Add the `active` class for active button state style.
-     */
-
-    &:active,
-    &.is-active {
-        border-color: darken($primary-color-dark, 5%);
-        background: $primary-color-dark;
+      &:focus,
+      &:hover {
         color: $light-color;
-        text-decoration: none;
+        border-color: darken($primary-color-dark, 5%);
+        background: darken($primary-color-dark, 2%);
+      }
 
+      &:active,
+      &.is-active {
+        color: $light-color;
+        border-color: darken($primary-color-dark, 7%);
+        background: darken($primary-color-dark, 4%);
+      }
 
-        // A button with the `loading` class can show loading indicator.
-        &.is-loading {
-            &::after {
-                border-bottom-color: $light-color;
-                border-left-color: $light-color;
-            }
+      &.is-loading {
+        &::after {
+          border-bottom-color: $light-color;
+          border-left-color: $light-color;
         }
+      }
     }
-
 
     /**
-     * BUTTON DISABLED
-     * Add the `disabled` class or the disabled attribute for disabled button
-     * state style.
+     * Button colors
+     *
+     * Add the `btn-success` or `btn-error` class for success (green) or error
+     * (red) button color. If you need more button colors, please use button
+     * mixins to create your own button color variants.
      */
-
-    &[disabled],
-    &:disabled,
-    &.is-disabled {
-        opacity: .5;
-        cursor: default;
-        pointer-events: none;
+    &--success {
+      @include button-variant($success-color);
     }
 
-    &.c-btn {
-        /**
-         * BUTTON PRIMARY
-         */
+    &--error {
+      @include button-variant($error-color);
+    }
 
-        &--primary {
-            border-color: $primary-color-dark;
-            background: $primary-color;
-            color: $light-color;
+    // Button link
+    &--link {
+      color: $link-color;
+      border-color: transparent;
+      background: transparent;
 
-            &:focus,
-            &:hover {
-                border-color: darken($primary-color-dark, 5%);
-                background: darken($primary-color-dark, 2%);
-                color: $light-color;
-            }
+      &:focus,
+      &:hover,
+      &:active,
+      &.active {
+        color: $link-color-dark;
+      }
+    }
 
-            &:active,
-            &.is-active {
-                border-color: darken($primary-color-dark, 7%);
-                background: darken($primary-color-dark, 4%);
-                color: $light-color;
-            }
+    /**
+     * Button sizes
+     *
+     * Add the `btn-sm` or `btn-lg` class for small or large button size.
+     */
+    &--sm {
+      height: $control-size-sm;
+      padding: $control-padding-y-sm $control-padding-x-sm;
+      font-size: $font-size-sm;
+    }
 
-            &.is-loading {
-                &::after {
-                    border-bottom-color: $light-color;
-                    border-left-color: $light-color;
-                }
-            }
-        }
+    &--lg {
+      height: $control-size-lg;
+      padding: $control-padding-y-lg $control-padding-x-lg;
+      font-size: $font-size-lg;
+    }
 
+    /**
+     * Button block
+     *
+     * Add the `btn-block` class for a full-width button.
+     */
+    &--block {
+      display: block;
+      width: 100%;
+    }
 
-        /**
-         * BUTTON COLORS
-         * Add the `btn-success` or `btn-error` class for success (green) or error
-         * (red) button color. If you need more button colors, please use button
-         * mixins to create your own button color variants.
-         */
+    /**
+     * Button action
+     *
+     * You could use the `btn-action` class for a square button, or add another
+     * `circle` class for a round button, which is often used as a Float Action
+     * Button (FAB).
+     */
+    &--action {
+      width: $control-size;
+      padding-right: 0;
+      padding-left: 0;
 
-        &--success {
-            @include button-variant($success-color);
-        }
-
-        &--error {
-            @include button-variant($error-color);
-        }
-
-
-        /**
-         * BUTTON LINK
-         */
-
-        &--link {
-            border-color: transparent;
-            background: transparent;
-            color: $link-color;
-
-            &:focus,
-            &:hover,
-            &:active,
-            &.active {
-                color: $link-color-dark;
-            }
-        }
-
-
-        /**
-         * BUTTON SIZES
-         * Add the `btn-sm` or `btn-lg` class for small or large button size.
-         */
-
+      &.c-btn {
         &--sm {
-            padding: $control-padding-y-sm $control-padding-x-sm;
-            height: $control-size-sm;
-            font-size: $font-size-sm;
+          width: $control-size-sm;
         }
 
         &--lg {
-            padding: $control-padding-y-lg $control-padding-x-lg;
-            height: $control-size-lg;
-            font-size: $font-size-lg;
+          width: $control-size-lg;
         }
-
-
-        /**
-         * BUTTON BLOCK
-         * Add the `btn-block` class for a full-width button.
-         */
-
-        &--block {
-            display: block;
-            width: 100%;
-        }
-
-
-        /**
-         * BUTTON ACTION
-         * You could use the `btn-action` class for a square button, or add another
-         * `circle` class for a round button, which is often used as a Float Action
-         * Button (FAB).
-         */
-
-        &--action {
-            padding-right: 0;
-            padding-left: 0;
-            width: $control-size;
-
-            &.c-btn {
-                &--sm {
-                    width: $control-size-sm;
-                }
-
-                &--lg {
-                    width: $control-size-lg;
-                }
-            }
-        }
-
-
-        /**
-         * BUTTON CLEAR
-         */
-
-        &--clear {
-            margin-right: -2px;
-            margin-left: $unit-1;
-            padding: 0;
-            width: $unit-4;
-            height: $unit-4;
-            border: 0;
-            background: transparent;
-            color: currentColor;
-            text-decoration: none;
-            line-height: $unit-4;
-            opacity: 1;
-
-            &:hover {
-                opacity: .95;
-            }
-
-            &::before {
-                content: '\2715';
-            }
-        }
+      }
     }
+
+    // Button clear
+    &--clear {
+      width: $unit-4;
+      height: $unit-4;
+      margin-right: -2px;
+      margin-left: $unit-1;
+      padding: 0;
+      text-decoration: none;
+      opacity: 1;
+      color: currentColor;
+      border: 0;
+      background: transparent;
+      line-height: $unit-4;
+
+      &:hover {
+        opacity: 0.95;
+      }
+
+      &::before {
+        content: "\2715";
+      }
+    }
+  }
 }
 
-
 /**
- * BUTTON GROUPS
+ * Button groups
+ *
  * If you want to use buttons as a group, add the `btn-group` class to the
  * container.
  * You can add the` btn-group-block` class for a full-width button group.
  */
-
 .c-btn-group {
-    display: inline-flex;
-    flex-wrap: wrap;
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  .c-btn {
+    flex: 1 0 auto;
+
+    &:first-child:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      margin-left: -$border-width;
+      border-radius: 0;
+    }
+
+    &:last-child:not(:first-child) {
+      margin-left: -$border-width;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:focus,
+    &:hover,
+    &:active,
+    &.active {
+      z-index: $zindex-0;
+    }
+  }
+
+  &.c-btn-group-block {
+    display: flex;
 
     .c-btn {
-        flex: 1 0 auto;
-
-        &:first-child:not(:last-child) {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        &:not(:first-child):not(:last-child) {
-            margin-left: -$border-width;
-            border-radius: 0;
-        }
-
-        &:last-child:not(:first-child) {
-            margin-left: -$border-width;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        &:focus,
-        &:hover,
-        &:active,
-        &.active {
-            z-index: $zindex-0;
-        }
+      flex: 1 0 0;
     }
-
-    &.c-btn-group-block {
-        display: flex;
-
-        .c-btn {
-            flex: 1 0 0;
-        }
-    }
+  }
 }

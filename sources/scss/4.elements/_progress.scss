@@ -1,62 +1,55 @@
 /**
  * @file
- *** PROGRESS ***
+ * Progress
  *
  * The Progress indicates the progress completion of a task.
  * @see: https://picturepan2.github.io/spectre/experimentals.html#progress
  * @see credit: https://css-tricks.com/html5-progress-element/
  */
 
-
-
-
 .progress {
-    position: relative;
-    width: 100%;
-    height: $unit-1;
-    border: 0;
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  height: $unit-1;
+  color: $primary-color;
+  border: 0;
+  border-radius: $border-radius;
+  background: $bg-color-dark;
+
+  &::-webkit-progress-bar {
     border-radius: $border-radius;
-    background: $bg-color-dark;
-    color: $primary-color;
+    background: transparent;
+  }
 
-    appearance: none;
+  &::-webkit-progress-value {
+    border-radius: $border-radius;
+    background: $primary-color;
+  }
 
-    &::-webkit-progress-bar {
-        border-radius: $border-radius;
-        background: transparent;
-    }
+  &::-moz-progress-bar {
+    border-radius: $border-radius;
+    background: $primary-color;
+  }
 
-    &::-webkit-progress-value {
-        border-radius: $border-radius;
-        background: $primary-color;
-    }
+  &:indeterminate {
+    animation: progress-indeterminate 1.5s linear infinite;
+    background: $bg-color-dark linear-gradient(to right, $primary-color 30%, $bg-color-dark 30%) top left / 150% 150% no-repeat;
 
     &::-moz-progress-bar {
-        border-radius: $border-radius;
-        background: $primary-color;
+      background: transparent;
     }
-
-    &:indeterminate {
-        background: $bg-color-dark linear-gradient(to right, $primary-color 30%, $bg-color-dark 30%) top left / 150% 150% no-repeat;
-        animation: progress-indeterminate 1.5s linear infinite;
-
-        &::-moz-progress-bar {
-            background: transparent;
-        }
-    }
+  }
 }
 
-
-/**
- * Progress animations
- */
-
+// Progress animations
 @keyframes progress-indeterminate {
-    0% {
-        background-position: 200% 0;
-    }
+  0% {
+    background-position: 200% 0;
+  }
 
-    100% {
-        background-position: -200% 0;
-    }
+  100% {
+    background-position: -200% 0;
+  }
 }

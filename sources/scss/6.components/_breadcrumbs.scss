@@ -1,45 +1,41 @@
 /**
  * @file
- *** BREADCRUMBS COMPONENT ***
+ * Breadcrumbs component
  *
  * Breadcrumbs are used as navigational hierarchies to indicate current
  * location.
  * @see: https://picturepan2.github.io/spectre/components.html#breadcrumbs
  */
 
-
-
-
 /**
  * Add a container element with the `c-breadcrumb` class. And add child
  * elements with the `c-breadcrumb__item` class.
  */
-
 .c-breadcrumb {
-    margin: $unit-1 0;
+  margin: $unit-1 0;
+  padding: $unit-1 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0;
     padding: $unit-1 0;
-    list-style: none;
+    color: $gray-color-dark;
 
-    &__item {
-        display: inline-block;
-        margin: 0;
-        padding: $unit-1 0;
+    &:not(:last-child) {
+      margin-right: $unit-1;
+
+      a {
         color: $gray-color-dark;
-
-        &:not(:last-child) {
-            margin-right: $unit-1;
-
-            a {
-                color: $gray-color-dark;
-            }
-        }
-
-        &:not(:first-child) {
-            &::before {
-                padding-right: $unit-2;
-                color: $gray-color-light;
-                content: '/';
-            }
-        }
+      }
     }
+
+    &:not(:first-child) {
+      &::before {
+        padding-right: $unit-2;
+        content: "/";
+        color: $gray-color-light;
+      }
+    }
+  }
 }

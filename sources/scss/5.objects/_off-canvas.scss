@@ -1,104 +1,96 @@
 /**
  * @file
- *** OFF-CANVAS OBJECT ***
+ * Off-Canvas object
  *
  * The Off-canvas is a navigation layout that the sidebar can slide in and out
  * of the viewport. It is built in pure CSS.
  * @see: https://picturepan2.github.io/spectre/experimentals.html#off-canvas
  */
 
-
-
-
-/**
- * Off-Canvas settings
- */
-
+// Off-Canvas settings
 $off-canvas-breakpoint: $size-lg !default;
 
-
-
+// Off-Canvas object
 .o-off-canvas {
-    position: relative;
-    display: flex;
-    flex-flow: nowrap;
+  position: relative;
+  display: flex;
+  flex-flow: nowrap;
+  width: 100%;
+  height: 100%;
+
+  &__toggle {
+    position: absolute;
+    z-index: $zindex-0;
+    top: $layout-spacing;
+    display: block;
+    transition: none;
+
+    @if $rtl == true {
+      right: $layout-spacing;
+    }
+
+    @else {
+      left: $layout-spacing;
+    }
+  }
+
+  &__sidebar {
+    position: fixed;
+    z-index: $zindex-2;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    min-width: 10rem;
+    transition: transform 0.25s ease;
+    background: $bg-color;
+
+    @if $rtl == true {
+      right: 0;
+      transform: translateX(100%);
+    }
+
+    @else {
+      left: 0;
+      transform: translateX(-100%);
+    }
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    height: 100%;
+    padding: $layout-spacing $layout-spacing $layout-spacing 4rem;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
     width: 100%;
     height: 100%;
+    border-color: transparent;
+    border-radius: 0;
+    background: rgba($dark-color, 0.1);
+  }
 
-    &__toggle {
-        position: absolute;
-        top: $layout-spacing;
-        z-index: $zindex-0;
-        display: block;
-        transition: none;
-
-        @if $rtl == true {
-            right: $layout-spacing;
-        }
-
-        @else {
-            left: $layout-spacing;
-        }
+  /**
+   * You can open the sidebar by adding the class `is-active` to
+   * `o-off-canvas-sidebar`. And remove the `is-active` to close it.
+   */
+  &__sidebar {
+    &:target,
+    &.is-active {
+      transform: translateX(0);
     }
 
-    &__sidebar {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        z-index: $zindex-2;
-        overflow-y: auto;
-        min-width: 10rem;
-        background: $bg-color;
-        transition: transform .25s ease;
-
-        @if $rtl == true {
-            right: 0;
-            transform: translateX(100%);
-        }
-
-        @else {
-            left: 0;
-            transform: translateX(-100%);
-        }
+    &:target ~ .o-off-canvas__overlay,
+    &.is-active ~ .o-off-canvas__overlay {
+      z-index: $zindex-1;
+      display: block;
     }
-
-    &__content {
-        flex: 1 1 auto;
-        padding: $layout-spacing $layout-spacing $layout-spacing 4rem;
-        height: 100%;
-    }
-
-    &__overlay {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: none;
-        width: 100%;
-        height: 100%;
-        border-color: transparent;
-        border-radius: 0;
-        background: rgba($dark-color, .1);
-    }
-
-    /**
-     * You can open the sidebar by adding the class `is-active` to
-     * `o-off-canvas-sidebar`. And remove the `is-active` to close it.
-     */
-
-    &__sidebar {
-        &:target,
-        &.is-active {
-            transform: translateX(0);
-        }
-
-        &:target ~ .o-off-canvas__overlay,
-        &.is-active ~ .o-off-canvas__overlay {
-            z-index: $zindex-1;
-            display: block;
-        }
-    }
+  }
 }
 
 /**
@@ -107,23 +99,22 @@ $off-canvas-breakpoint: $size-lg !default;
  * make the sidebar expanded when the window width is larger than or equal to
  * 960px.
  */
-
 @include media($off-canvas-breakpoint) {
-    .o-off-canvas {
-        &.o-off-canvas__sidebar--show {
-            .o-off-canvas__toggle {
-                display: none;
-            }
+  .o-off-canvas {
+    &.o-off-canvas__sidebar--show {
+      .o-off-canvas__toggle {
+        display: none;
+      }
 
-            .o-off-canvas__sidebar {
-                position: relative;
-                flex: 0 0 auto;
-                transform: none;
-            }
+      .o-off-canvas__sidebar {
+        position: relative;
+        flex: 0 0 auto;
+        transform: none;
+      }
 
-            .o-off-canvas__overlay {
-                display: none !important;
-            }
-        }
+      .o-off-canvas__overlay {
+        display: none !important;
+      }
     }
+  }
 }

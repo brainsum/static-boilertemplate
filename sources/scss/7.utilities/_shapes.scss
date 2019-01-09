@@ -1,15 +1,12 @@
 /**
  * @file
- *** SHAPES UTILITY ***
+ * Shapes utility
  */
 
-
-
-
 .u-shape--rounded {
-    border-radius: $border-radius;
+  border-radius: $border-radius;
 }
 
 .u-shape--circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }

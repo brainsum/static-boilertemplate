@@ -1,51 +1,48 @@
 /**
  * @file
- *** SPOTLIGHT COMPONENT ***
+ * Spotlight component
  */
 
-
-
-
 .c-spotlight {
-    flex-direction: column-reverse;
-    text-align: center;
+  flex-direction: column-reverse;
+  text-align: center;
+
+  @include media(md) {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  &__image {
+    margin: 0 auto $unit-8;
+    padding: $unit-3;
+    border: solid $border-width $gray-color-light;
 
     @include media(md) {
-        flex-direction: row;
-        text-align: left;
+      margin: 0 auto 0 7.5rem;
     }
 
-    &__image {
-        margin: 0 auto $unit-8;
-        padding: $unit-3;
-        border: solid $border-width $gray-color-light;
+    img {
+      display: block;
+      width: 20rem;
 
-        @include media(md) {
-            margin: 0 auto 0 7.5rem;
-        }
+      @include media(xs) {
+        width: 30rem;
+      }
+    }
+  }
 
-        img {
-            display: block;
-            width: 20rem;
+  &__actions {
+    justify-content: center;
+    margin: 0 0 0 -#{$unit-4} !important;
+    list-style: none;
 
-            @include media(xs) {
-                width: 30rem;
-            }
-        }
+    @include media(md) {
+      justify-content: flex-start;
     }
 
-    &__actions {
-        justify-content: center;
-        margin: 0 0 0 -#{$unit-4} !important;
-        list-style: none;
-
-        @include media(md) {
-            justify-content: flex-start;
-        }
-
-        li {
-            margin: 0;
-            padding-left: $unit-4;
-        }
+    li {
+      margin: 0;
+      padding-left: $unit-4;
     }
+  }
 }

@@ -1,13 +1,10 @@
 /**
  * @file
- *** DROPDOWN MENU COMPONENT ***
+ * Dropdown menu component
  *
  * The dropdown is a combination of buttons and menus.
  * @see: https://picturepan2.github.io/spectre/components.html#menu-dropdown
  */
-
-
-
 
 /**
  * Dropdown menus component is built entirely in CSS. It is triggered by
@@ -18,52 +15,47 @@
  * component right next to it. You also need to add tabindex to make the
  * buttons focusable.
  */
-
 .c-dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 
+  .c-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    overflow-y: auto;
+    max-height: 50vh;
+    animation: slide-down 0.15s ease 1;
+  }
+
+  /**
+   * If the dropdown is close to the right edge of the browser, you can add
+   * the `c-dropdown--right` class to the container to prevent it appearing
+   * off screen.
+   */
+  &.c-dropdown--right {
     .c-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        display: none;
-        overflow-y: auto;
-        max-height: 50vh;
-        animation: slide-down .15s ease 1;
+      right: 0;
+      left: auto;
     }
+  }
 
+  /**
+   * You can implement your JS to interact with the dropdown menus by adding
+   * the `is-active` class to the dropdown container.
+   */
+  &.is-active .c-menu,
+  .c-dropdown__toggle:focus + .c-menu,
+  .c-menu:hover {
+    display: block;
+  }
 
-    /**
-     * If the dropdown is close to the right edge of the browser, you can add
-     * the `c-dropdown--right` class to the container to prevent it appearing
-     * off screen.
-     */
-
-    &.c-dropdown--right {
-        .c-menu {
-            right: 0;
-            left: auto;
-        }
+  // FIXME: dropdown-toggle border radius in button groups
+  .c-btn-group {
+    .c-dropdown__toggle:nth-last-child(2) {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
     }
-
-
-    /**
-     * You can implement your JS to interact with the dropdown menus by adding
-     * the `is-active` class to the dropdown container.
-     */
-
-    &.is-active .c-menu,
-    .c-dropdown__toggle:focus + .c-menu,
-    .c-menu:hover {
-        display: block;
-    }
-
-    // FIXME: dropdown-toggle border radius in button groups
-    .c-btn-group {
-        .c-dropdown__toggle:nth-last-child(2) {
-            border-top-right-radius: $border-radius;
-            border-bottom-right-radius: $border-radius;
-        }
-    }
+  }
 }

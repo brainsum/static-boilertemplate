@@ -1,23 +1,19 @@
 /**
  * @file
- *** SMACCS: THEME ***
+ * SMACCS: theme
  *
  * Purely visual styling ("look-and-feel") for components.
  *
  * ITCSS: -
  */
 
-
-
-
 /**
- * IMPORTS
+ * Imports
+ *
  * First import our custom variables and mixins
  */
-
 @import 'index';
 
-
 body {
-    background-color: $primary-color;
+  background-color: $primary-color;
 }

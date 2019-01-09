@@ -1,61 +1,57 @@
 /**
  * @file
- *** BASE ***
+ * Base
  */
 
-
-
-
 * {
-    &,
-    &::before,
-    &::after {
-        box-sizing: inherit;
-    }
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 html {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    font-size: 62.5%; /* 1rem = 10px; 10px/16px = 62.5% */
-    line-height: $html-line-height;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+  line-height: $html-line-height;
 }
 
 body {
-    overflow-x: hidden;
-    background: $body-bg;
-    color: $body-font-color;
-    font-size: $font-size;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  color: $body-font-color;
+  background: $body-bg;
+  font-size: $font-size;
 
-    text-rendering: optimizeLegibility;
-
-    .fonts-loaded & {
-        font-family: $body-font-family;
-    }
+  .fonts-loaded & {
+    font-family: $body-font-family;
+  }
 }
 
 a {
-    outline: none;
-    border-bottom: dotted 1px;
+  transition:
+    color 0.2s ease,
+    border-bottom 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: dotted 1px;
+  outline: none;
+
+  &:focus {
+    @include control-shadow();
+  }
+
+  &:focus,
+  &:hover,
+  &:active,
+  &.active {
+    color: $light-color;
+    border-bottom-color: transparent;
+  }
+
+  &:visited {
     color: inherit;
-    text-decoration: none;
-    text-decoration: none;
-    transition: color .2s ease,
-    border-bottom .2s ease;
-
-    &:focus {
-        @include control-shadow();
-    }
-
-    &:focus,
-    &:hover,
-    &:active,
-    &.active {
-        border-bottom-color: transparent;
-        color: $light-color;
-    }
-
-    &:visited {
-        color: inherit;
-    }
+  }
 }

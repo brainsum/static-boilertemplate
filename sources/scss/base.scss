@@ -1,6 +1,6 @@
 /**
  * @file
- *** SMACSS: BASE ***
+ * SMACSS: base
  *
  * CSS reset, HTML elements and any other very basic stuffs.
  * All basic stuff is in base subdirectory.
@@ -8,54 +8,47 @@
  * ITCSS: generic, elements
  */
 
-
-
-
 /**
- * IMPORTS
+ * Imports
+ *
  * First import our custom variables and mixins
  */
-
 @import 'index';
 
-
 /**
- * GENERIC
+ * Generic
+ *
  * Reset and dependencies
  */
-
 @import '3.generic/normalize';
 @import '3.generic/base';
 
-
 /**
- * ELEMENTS
+ * Elements
+ *
  * @see: https://picturepan2.github.io/spectre/elements.html
  */
-
 @import '4.elements/typography';
 // @import '4.elements/tables';
 // @import '4.elements/labels';
 // @import '4.elements/codes';
 @import '4.elements/media';
 
-
 /**
- * ICONS
+ * Icons
+ *
  * Icons are single-element, responsive and pure CSS icons.
  * @see: https://picturepan2.github.io/spectre/elements.html#icons
  */
-
 @import '4.elements/icons-core';
 @import '4.elements/icons-navigation';
 @import '4.elements/icons-action';
 @import '4.elements/icons-object';
 
-
 /**
- * EXPERIMENTALS
+ * Experimentals
+ *
  * @see: https://picturepan2.github.io/spectre/experimentals.html
  */
-
 // @import '4.elements/meters';
 // @import '4.elements/progress';

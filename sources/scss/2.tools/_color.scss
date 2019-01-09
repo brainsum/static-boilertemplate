@@ -1,42 +1,33 @@
 /**
  * @file
- *** COLOR MIXINS ***
+ * Color mixins
  */
 
+// Background color utility mixin
+@mixin bg-color-variant($name: ".bg-primary", $color: $primary-color) {
+  #{$name} {
+    background: $color;
 
-
-
-/**
- * BACKGROUND COLOR UTILITY MIXIN
- */
-
-@mixin bg-color-variant($name: '.bg-primary', $color: $primary-color) {
-    #{$name} {
-        background: $color;
-
-        @if (lightness($color) < 60) {
-            color: $light-color;
-        }
+    @if (lightness($color) < 60) {
+      color: $light-color;
     }
+  }
 }
 
+// Text color utility mixin
+@mixin text-color-variant($name: ".text-primary", $color: $primary-color) {
+  #{$name} {
+    color: $color;
+  }
 
-/**
- * TEXT COLOR UTILITY MIXIN
- */
-
-@mixin text-color-variant($name: '.text-primary', $color: $primary-color) {
-    #{$name} {
-        color: $color;
+  a#{$name} {
+    &:focus,
+    &:hover {
+      color: darken($color, 5%);
     }
 
-    a#{$name} {
-        &:focus,
-        &:hover {
-            color: darken($color, 5%);
-        }
-        &:visited {
-            color: lighten($color, 5%);
-        }
+    &:visited {
+      color: lighten($color, 5%);
     }
+  }
 }

@@ -1,86 +1,68 @@
 /**
  * @file
- *** TEXT UTILITY ***
+ * Text utility
  */
 
-
-
-
-/**
- * TEXT ALIGNMENT UTILITIES
- */
-
+// Text alignment utilities
 .u-text--left {
-    text-align: left;
+  text-align: left;
 }
 
 .u-text--right {
-    text-align: right;
+  text-align: right;
 }
 
 .u-text--center {
-    text-align: center;
+  text-align: center;
 }
 
 .u-text--justify {
-    text-align: justify;
+  text-align: justify;
 }
 
-
-/**
- * TEXT TRANSFORM UTILITIES
- */
-
+// Text transform utilities
 .u-text--lowercase {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .u-text--uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .u-text--capitalize {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
-
-/**
- * TEXT STYLE UTILITIES
- */
-
+// Text style utilities
 .u-text--normal {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .u-text--bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .u-text--italic {
-    font-style: italic;
+  font-style: italic;
 }
 
 .u-text--large {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
-
-/**
- * TEXT OVERFLOW UTILITIES
- */
-
+// Text overflow utilities
 .u-text--ellipsis {
-    @include text-ellipsis;
+  @include text-ellipsis;
 }
 
 .u-text--clip {
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
 }
 
 .u-text--break {
-    word-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }

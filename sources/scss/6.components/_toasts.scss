@@ -1,67 +1,62 @@
 /**
  * @file
- *** TOASTS COMPONENT ***
+ * Toasts component
  *
  * Toasts are used to show alert or information to users.
  * @see: https://picturepan2.github.io/spectre/components.html#toasts
  */
-
-
-
 
 /**
  * Add a container element with the `c-toast` class. You can add any text within
  * the container, and even icons. You may also add a close button with the
  * `c-btn--clear` class if you need.
  */
-
 .c-toast {
-    @include toast-variant($dark-color);
-    display: block;
-    padding: $layout-spacing;
-    width: 100%;
-    border: $border-width solid $dark-color;
-    border-radius: $border-radius;
+  @include toast-variant($dark-color);
+
+  display: block;
+  width: 100%;
+  padding: $layout-spacing;
+  color: $light-color;
+  border: $border-width solid $dark-color;
+  border-radius: $border-radius;
+
+  /**
+   * You can add the following classes for additional toast colors:
+   *  - `c-toast--primary`
+   *  - `c-toast--success`
+   *  - `c-toast--warning`
+   *  - `c-toast--error`
+   */
+  &.c-toast--primary {
+    @include toast-variant($primary-color);
+  }
+
+  &.c-toast--success {
+    @include toast-variant($success-color);
+  }
+
+  &.c-toast--warning {
+    @include toast-variant($warning-color);
+  }
+
+  &.c-toast--error {
+    @include toast-variant($error-color);
+  }
+
+  a {
+    text-decoration: underline;
     color: $light-color;
 
-
-    /**
-     * You can add the following classes for additional toast colors:
-     *  - `c-toast--primary`
-     *  - `c-toast--success`
-     *  - `c-toast--warning`
-     *  - `c-toast--error`
-     */
-
-    &.c-toast--primary {
-        @include toast-variant($primary-color);
+    &:focus,
+    &:hover,
+    &:active,
+    &.active {
+      opacity: 0.75;
     }
+  }
 
-    &.c-toast--success {
-        @include toast-variant($success-color);
-    }
-
-    &.c-toast--warning {
-        @include toast-variant($warning-color);
-    }
-
-    &.c-toast--error {
-        @include toast-variant($error-color);
-    }
-
-    a {
-        color: $light-color;
-        text-decoration: underline;
-
-        &:focus,
-        &:hover,
-        &:active,
-        &.active {
-            opacity: .75;
-        }
-    }
-
-    .c-btn--clear {
-        margin: 4px -2px 4px 4px;
-    }
+  .c-btn--clear {
+    margin: 4px -2px 4px 4px;
+  }
 }

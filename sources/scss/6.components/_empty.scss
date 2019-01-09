@@ -1,14 +1,11 @@
 /**
  * @file
- *** Empty states component ***
+ * Empty states component
  *
  * Empty states/blank slates are commonly used as placeholders for first time
  * use, empty data and error screens.
  * @see: https://picturepan2.github.io/spectre/components.html#empty
  */
-
-
-
 
 /**
  * An empty state component can include icons, messages (title and subtitle
@@ -16,24 +13,23 @@
  * Add `c-empty__icon`, `c-empty__title`, `c-empty__subtitle` or
  * `c-empty__action` to the elements.
  */
-
 .c-empty {
-    padding: $unit-16 $unit-8;
-    border-radius: $border-radius;
-    background: $bg-color;
-    color: $gray-color-dark;
-    text-align: center;
+  padding: $unit-16 $unit-8;
+  text-align: center;
+  color: $gray-color-dark;
+  border-radius: $border-radius;
+  background: $bg-color;
 
-    &__icon {
-        margin-bottom: $layout-spacing-lg;
-    }
+  &__icon {
+    margin-bottom: $layout-spacing-lg;
+  }
 
-    &__title,
-    &__subtitle {
-        margin: $layout-spacing auto;
-    }
+  &__title,
+  &__subtitle {
+    margin: $layout-spacing auto;
+  }
 
-    &__action {
-        margin-top: $layout-spacing-lg;
-    }
+  &__action {
+    margin-top: $layout-spacing-lg;
+  }
 }

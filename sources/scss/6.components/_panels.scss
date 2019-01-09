@@ -1,13 +1,10 @@
 /**
  * @file
- *** PANELS COMPONENT ***
+ * Panels component
  *
  * Panels are flexible view container with auto-expand content section.
  * @see: https://picturepan2.github.io/spectre/components.html#panels
  */
-
-
-
 
 /**
  * Add a container element with the `c-panel` class. And add child elements with
@@ -15,26 +12,25 @@
  * `c-panel__footer` classes. The `c-panel__body` can be auto expanded and
  * vertically scrollable.
  */
-
 .c-panel {
-    display: flex;
-    flex-direction: column;
-    border: $border-width solid $border-color;
-    border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
 
-    &__header,
-    &__footer {
-        flex: 0 0 auto;
-        padding: $layout-spacing-lg;
-    }
+  &__header,
+  &__footer {
+    flex: 0 0 auto;
+    padding: $layout-spacing-lg;
+  }
 
-    &__nav {
-        flex: 0 0 auto;
-    }
+  &__nav {
+    flex: 0 0 auto;
+  }
 
-    &__body {
-        overflow-y: auto;
-        flex: 1 1 auto;
-        padding: 0 $layout-spacing-lg;
-    }
+  &__body {
+    overflow-y: auto;
+    flex: 1 1 auto;
+    padding: 0 $layout-spacing-lg;
+  }
 }

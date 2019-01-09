@@ -1,160 +1,150 @@
 /**
  * @file
- *** PARALLAX COMPOINENT ***
+ * Parallax compoinent
  *
  * The Parallax acts like Apple TV/tvOS hover parallax effect. It is built in
  * pure CSS.
  * @see: https://picturepan2.github.io/spectre/experimentals.html#parallax
  */
 
-
-
-
-/**
- * Parallax settings
- */
-
+// Parallax settings
 $parallax-deg: 3deg !default;
 $parallax-offset: 4.5px !default;
 $parallax-offset-z: 50px !default;
 $parallax-perspective: 1000px !default;
-$parallax-scale: .95 !default;
-$parallax-fade-color: rgba(255, 255, 255, .35) !default;
+$parallax-scale: 0.95 !default;
+$parallax-fade-color: rgba(255, 255, 255, 0.35) !default;
 
-
-/**
- * Parallax mixins
- */
-
+// Parallax mixins
 @mixin parallax-dir() {
-    position: absolute;
-    z-index: $zindex-1;
-    width: 50%;
-    height: 50%;
-    outline: none;
+  position: absolute;
+  z-index: $zindex-1;
+  width: 50%;
+  height: 50%;
+  outline: none;
 }
 
-
-/**
- * Parallax component
- */
-
+// Parallax component
 .c-parallax {
-    position: relative;
-    display: block;
-    width: auto;
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+
+  &__content {
+    @include shadow-variant(1rem);
+
+    width: 100%;
     height: auto;
+    transition: all 0.4s ease;
+    transform: perspective($parallax-perspective);
+    transform-style: preserve-3d;
 
-    &__content {
-        @include shadow-variant(1rem);
-        width: 100%;
-        height: auto;
-        transition: all .4s ease;
-        transform: perspective($parallax-perspective);
-
-        transform-style: preserve-3d;
-
-        &::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: block;
-            width: 100%;
-            height: 100%;
-            content: '';
-        }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: "";
     }
+  }
 
-    &__front {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: $zindex-0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        color: $light-color;
-        text-align: center;
-        text-shadow: 0 0 20px rgba($dark-color, .75);
-        transition: all .4s ease;
-        transform: translateZ($parallax-offset-z) scale($parallax-scale);
+  &__front {
+    position: absolute;
+    z-index: $zindex-0;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+    transform: translateZ($parallax-offset-z) scale($parallax-scale);
+    text-align: center;
+    color: $light-color;
+    text-shadow: 0 0 20px rgba($dark-color, 0.75);
+  }
+
+  &--top-left {
+    @include parallax-dir();
+
+    top: 0;
+    left: 0;
+
+    &:focus ~ .c-parallax__content,
+    &:hover ~ .c-parallax__content {
+      transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY(-$parallax-deg);
+
+      &::before {
+        background: linear-gradient(135deg, $parallax-fade-color 0%, transparent 50%);
+      }
+
+      .parallax-front {
+        transform: translate3d($parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
+      }
     }
+  }
 
-    &--top-left {
-        @include parallax-dir();
-        top: 0;
-        left: 0;
+  &--top-right {
+    @include parallax-dir();
 
-        &:focus ~ .c-parallax__content,
-        &:hover ~ .c-parallax__content {
-            transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY(-$parallax-deg);
+    top: 0;
+    right: 0;
 
-            &::before {
-                background: linear-gradient(135deg, $parallax-fade-color 0%, transparent 50%);
-            }
+    &:focus ~ .c-parallax__content,
+    &:hover ~ .c-parallax__content {
+      transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY($parallax-deg);
 
-            .parallax-front {
-                transform: translate3d($parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
-            }
-        }
+      &::before {
+        background: linear-gradient(-135deg, $parallax-fade-color 0%, transparent 50%);
+      }
+
+      .c-parallax__front {
+        transform: translate3d(-$parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
+      }
     }
+  }
 
-    &--top-right {
-        @include parallax-dir();
-        top: 0;
-        right: 0;
+  &--bottom-left {
+    @include parallax-dir();
 
-        &:focus ~ .c-parallax__content,
-        &:hover ~ .c-parallax__content {
-            transform: perspective($parallax-perspective) rotateX($parallax-deg) rotateY($parallax-deg);
+    bottom: 0;
+    left: 0;
 
-            &::before {
-                background: linear-gradient(-135deg, $parallax-fade-color 0%, transparent 50%);
-            }
+    &:focus ~ .c-parallax__content,
+    &:hover ~ .c-parallax__content {
+      transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY(-$parallax-deg);
 
-            .c-parallax__front {
-                transform: translate3d(-$parallax-offset, $parallax-offset, $parallax-offset-z) scale($parallax-scale);
-            }
-        }
+      &::before {
+        background: linear-gradient(45deg, $parallax-fade-color 0%, transparent 50%);
+      }
+
+      .c-parallax__front {
+        transform: translate3d($parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
+      }
     }
+  }
 
-    &--bottom-left {
-        @include parallax-dir();
-        bottom: 0;
-        left: 0;
+  &--bottom-right {
+    @include parallax-dir();
 
-        &:focus ~ .c-parallax__content,
-        &:hover ~ .c-parallax__content {
-            transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY(-$parallax-deg);
+    right: 0;
+    bottom: 0;
 
-            &::before {
-                background: linear-gradient(45deg, $parallax-fade-color 0%, transparent 50%);
-            }
+    &:focus ~ .c-parallax__content,
+    &:hover ~ .c-parallax__content {
+      transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY($parallax-deg);
 
-            .c-parallax__front {
-                transform: translate3d($parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
-            }
-        }
+      &::before {
+        background: linear-gradient(-45deg, $parallax-fade-color 0%, transparent 50%);
+      }
+
+      .c-parallax__front {
+        transform: translate3d(-$parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
+      }
     }
-
-    &--bottom-right {
-        @include parallax-dir();
-        right: 0;
-        bottom: 0;
-
-        &:focus ~ .c-parallax__content,
-        &:hover ~ .c-parallax__content {
-            transform: perspective($parallax-perspective) rotateX(-$parallax-deg) rotateY($parallax-deg);
-
-            &::before {
-                background: linear-gradient(-45deg, $parallax-fade-color 0%, transparent 50%);
-            }
-
-            .c-parallax__front {
-                transform: translate3d(-$parallax-offset, -$parallax-offset, $parallax-offset-z) scale($parallax-scale);
-            }
-        }
-    }
+  }
 }

@@ -1,13 +1,10 @@
 /**
  * @file
- *** AVATAR MIXIN ***
+ * Avatar mixin
  */
 
-
-
-
 @mixin avatar-base($size: $unit-8) {
-    width: $size;
-    height: $size;
-    font-size: $size / 2;
+  width: $size;
+  height: $size;
+  font-size: $size / 2;
 }

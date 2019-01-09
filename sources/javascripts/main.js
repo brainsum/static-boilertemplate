@@ -1,104 +1,99 @@
 /**
  * @file
- * CUSTOM SCRIPTS
+ * Custom scripts
  */
 
+(function jquery($) {
+  // Declare all variables.
+  var $window = $(window);
+  var $body = $('body');
+  var $main = $('#main');
+  var $nav = $('#navigation');
+  var $navLink = $nav.find('a');
 
+  // Play initial animations on page load.
+  $window.on('load', function windowLoaded() {
+    window.setTimeout(function preloadRemover() {
+      $body.removeClass('is-preload');
+    }, 100);
+  });
 
+  // Nav.
+  if ($nav.length > 0) {
+    // Shrink effect.
+    $main
+      .scrollex({
+        mode: 'top',
 
-(function ($) {
+        enter: function beginAltNav() {
+          $nav.addClass('c-navigation--alt');
+        },
 
-    var $window = $(window),
-        $body = $('body'),
-        $main = $('#main');
+        leave: function endAltNav() {
+          $nav.removeClass('c-navigation--alt');
+        }
+      });
 
+    // Links.
+    $navLink
+      .scrolly({
+        speed: 1000,
+        offset: function navHeight() {
+          return $nav.height();
+        }
+      })
 
-    // Play initial animations on page load.
-    $window.on('load', function () {
-        window.setTimeout(function () {
-            $body.removeClass('is-preload');
-        }, 100);
-    });
+      .on('click', function navClick() {
+        var $this = $(this);
 
-    // Nav.
-    var $nav = $('#navigation');
+        // External link? Bail.
+        if ($this.attr('href').charAt(0) !== '#') {
+          return;
+        }
 
-    if ($nav.length > 0) {
+        // Deactivate all links.
+        $navLink
+          .removeClass('is-active')
+          .removeClass('is-active-locked');
 
-        // Shrink effect.
-        $main
-            .scrollex({
-                mode: 'top',
-                enter: function () {
-                    $nav.addClass('c-navigation--alt');
-                },
-                leave: function () {
-                    $nav.removeClass("c-navigation--alt");
-                },
-            });
+        /* Activate link *and* lock it (so Scrollex doesn't try to activate
+         * other links as we're scrolling to this one's section).
+         */
+        $this
+          .addClass('is-active')
+          .addClass('is-active-locked');
+      })
 
-        // Links.
-        var $nav_a = $nav.find('a');
+      .each(function getUrlFragment() {
+        var $this = $(this);
+        var id = $this.attr('href');
+        var $section = $(id);
 
-        $nav_a
-            .scrolly({
-                speed: 1000,
-                offset: function () { return $nav.height(); }
-            })
-            .on('click', function () {
+        // No section for this link? Bail.
+        if ($section.length < 1) {
+          return;
+        }
 
-                var $this = $(this);
+        // Scrollex.
+        $section.scrollex({
+          mode: 'middle',
 
-                // External link? Bail.
-                if ($this.attr('href').charAt(0) != '#')
-                    return;
+          enter: function scrollexFired() {
+            // Activate section.
+            $section.removeClass('is-inactive');
 
-                // Deactivate all links.
-                $nav_a
-                    .removeClass('is-active')
-                    .removeClass('is-active-locked');
+            // No locked links? Deactivate all links and activate this section's one.
+            if ($navLink.filter('.is-active-locked').length === 0) {
+              $navLink.removeClass('is-active');
+              $this.addClass('is-active');
+            }
 
-                // Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-                $this
-                    .addClass('is-active')
-                    .addClass('is-active-locked');
-
-            })
-            .each(function () {
-
-                var $this = $(this),
-                    id = $this.attr('href'),
-                    $section = $(id);
-
-                // No section for this link? Bail.
-                if ($section.length < 1)
-                    return;
-
-                // Scrollex.
-                $section.scrollex({
-                    mode: 'middle',
-                    enter: function () {
-
-                        // Activate section.
-                        $section.removeClass('is-inactive');
-
-                        // No locked links? Deactivate all links and activate this section's one.
-                        if ($nav_a.filter('.is-active-locked').length == 0) {
-
-                            $nav_a.removeClass('is-active');
-                            $this.addClass('is-active');
-
-                        }
-
-                        // Otherwise, if this section's link is the one that's locked, unlock it.
-                        else if ($this.hasClass('is-active-locked'))
-                            $this.removeClass('is-active-locked');
-
-                    }
-                });
-
-            });
-
-    }
-
-})(jQuery);
+            // Otherwise, if this section's link is the one that's locked, unlock it.
+            else if ($this.hasClass('is-active-locked')) {
+              $this.removeClass('is-active-locked');
+            }
+          }
+        });
+      });
+  }
+}(jQuery));

@@ -1,43 +1,40 @@
 /**
  * @file
- *** LOADING UTILITY ***
+ * Loading utility
  */
 
-
-
-
 .u-loading {
-    position: relative;
-    min-height: $unit-4;
-    color: transparent !important;
-    pointer-events: none;
+  position: relative;
+  min-height: $unit-4;
+  pointer-events: none;
+  color: transparent !important;
+
+  &::after {
+    position: absolute;
+    z-index: $zindex-0;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: $unit-4;
+    height: $unit-4;
+    margin-top: -$unit-2;
+    margin-left: -$unit-2;
+    content: "";
+    animation: loading 500ms infinite linear;
+    border: $border-width-lg solid $primary-color;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+  }
+
+  &.u-loading--lg {
+    min-height: $unit-10;
 
     &::after {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: $zindex-0;
-        display: block;
-        margin-top: -$unit-2;
-        margin-left: -$unit-2;
-        width: $unit-4;
-        height: $unit-4;
-        border: $border-width-lg solid $primary-color;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-radius: 50%;
-        content: '';
-        animation: loading 500ms infinite linear;
+      width: $unit-8;
+      height: $unit-8;
+      margin-top: -$unit-4;
+      margin-left: -$unit-4;
     }
-
-    &.u-loading--lg {
-        min-height: $unit-10;
-
-        &::after {
-            margin-top: -$unit-4;
-            margin-left: -$unit-4;
-            width: $unit-8;
-            height: $unit-8;
-        }
-    }
+  }
 }

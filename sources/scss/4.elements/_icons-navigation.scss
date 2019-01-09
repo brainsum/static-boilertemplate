@@ -1,15 +1,9 @@
 /**
  * @file
- *** NAVIGATION ICONS ***
+ * Navigation icons
 */
 
-
-
-
-/**
- * ICON ARROWS
- */
-
+// Icon arrows
 .icon-arrow-down,
 .icon-arrow-left,
 .icon-arrow-right,
@@ -18,144 +12,139 @@
 .icon-back,
 .icon-forward,
 .icon-upward {
-    &::before {
-        width: .65em;
-        height: .65em;
-        border: $icon-border-width solid currentColor;
-        border-right: 0;
-        border-bottom: 0;
-        content: '';
-    }
+  &::before {
+    width: 0.65em;
+    height: 0.65em;
+    content: "";
+    border: $icon-border-width solid currentColor;
+    border-right: 0;
+    border-bottom: 0;
+  }
 }
 
 .icon-arrow-down {
-    &::before {
-        transform: translate(-50%, -75%) rotate(225deg);
-    }
+  &::before {
+    transform: translate(-50%, -75%) rotate(225deg);
+  }
 }
 
 .icon-arrow-left {
-    &::before {
-        transform: translate(-25%, -50%) rotate(-45deg);
-    }
+  &::before {
+    transform: translate(-25%, -50%) rotate(-45deg);
+  }
 }
 
 .icon-arrow-right {
-    &::before {
-        transform: translate(-75%, -50%) rotate(135deg);
-    }
+  &::before {
+    transform: translate(-75%, -50%) rotate(135deg);
+  }
 }
 
 .icon-arrow-up {
-    &::before {
-        transform: translate(-50%, -25%) rotate(45deg);
-    }
+  &::before {
+    transform: translate(-50%, -25%) rotate(45deg);
+  }
 }
 
 .icon-back,
 .icon-forward {
-    &::after {
-        width: .8em;
-        height: $icon-border-width;
-        background: currentColor;
-        content: '';
-    }
+  &::after {
+    width: 0.8em;
+    height: $icon-border-width;
+    content: "";
+    background: currentColor;
+  }
 }
 
 .icon-downward,
 .icon-upward {
-    &::after {
-        width: $icon-border-width;
-        height: .8em;
-        background: currentColor;
-        content: '';
-    }
+  &::after {
+    width: $icon-border-width;
+    height: 0.8em;
+    content: "";
+    background: currentColor;
+  }
 }
 
 .icon-back {
-    &::after {
-        left: 55%;
-    }
+  &::after {
+    left: 55%;
+  }
 
-    &::before {
-        transform: translate(-50%, -50%) rotate(-45deg);
-    }
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }
 
 .icon-downward {
-    &::after {
-        top: 45%;
-    }
+  &::after {
+    top: 45%;
+  }
 
-    &::before {
-        transform: translate(-50%, -50%) rotate(-135deg);
-    }
+  &::before {
+    transform: translate(-50%, -50%) rotate(-135deg);
+  }
 }
 
 .icon-forward {
-    &::after {
-        left: 45%;
-    }
+  &::after {
+    left: 45%;
+  }
 
-    &::before {
-        transform: translate(-50%, -50%) rotate(135deg);
-    }
+  &::before {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
 }
 
 .icon-upward {
-    &::after {
-        top: 55%;
-    }
+  &::after {
+    top: 55%;
+  }
 
-    &::before {
-        transform: translate(-50%, -50%) rotate(45deg);
-    }
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
 }
 
-
-/**
- * ICON CARET
- */
-
+// Icon caret
 .icon-caret {
-    &::before {
-        width: 0;
-        height: 0;
-        border-top: .3em solid currentColor;
-        border-right: .3em solid transparent;
-        border-left: .3em solid transparent;
-        content: '';
-        transform: translate(-50%, -25%);
-    }
+  &::before {
+    width: 0;
+    height: 0;
+    content: "";
+    transform: translate(-50%, -25%);
+    border-top: 0.3em solid currentColor;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+  }
 }
 
-
-/**
- * ICON MENU
- */
-
+// Icon menu
 .icon-menu {
-    &::before {
-        width: 100%;
-        height: $icon-border-width;
-        background: currentColor;
-        box-shadow: 0 -.35em, 0 .35em;
-        content: '';
-    }
+  &::before {
+    width: 100%;
+    height: $icon-border-width;
+    content: "";
+    background: currentColor;
+    box-shadow: 0 -0.35em, 0 0.35em;
+  }
 }
 
-
-/**
- * ICON APPS
- */
-
+// Icon apps
 .icon-apps {
-    &::before {
-        width: 3px;
-        height: 3px;
-        background: currentColor;
-        box-shadow: -.35em -.35em, -.35em 0, -.35em .35em, 0 -.35em,
-        0 .35em, .35em -.35em, .35em 0, .35em .35em;
-        content: '';
-    }
+  &::before {
+    width: 3px;
+    height: 3px;
+    content: "";
+    background: currentColor;
+    box-shadow:
+      -0.35em -0.35em,
+      -0.35em 0,
+      -0.35em 0.35em,
+      0 -0.35em,
+      0 0.35em,
+      0.35em -0.35em,
+      0.35em 0,
+      0.35em 0.35em;
+  }
 }

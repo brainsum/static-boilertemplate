@@ -1,13 +1,10 @@
 /**
  * @file
- *** BADGES COMPONENT ***
+ * Badges component
  *
  * Badges are often used as unread number indicators.
  * @see: https://picturepan2.github.io/spectre/components.html#badges
  */
-
-
-
 
 /**
  * Add the `c-badge` class to non self closing elements. And add the
@@ -20,71 +17,63 @@
  */
 
 .c-badge {
-    position: relative;
-    white-space: nowrap;
+  position: relative;
+  white-space: nowrap;
 
-    &[data-badge],
-    &:not([data-badge]) {
-        &::after {
-            display: inline-block;
-            border-radius: .5rem;
-            background: $primary-color;
-            background-clip: padding-box;
-            box-shadow: 0 0 0 .1rem $bg-color-light;
-            color: $light-color;
-            content: attr(data-badge);
-            transform: translate(-.05rem, -.5rem);
-        }
+  &[data-badge],
+  &:not([data-badge]) {
+    &::after {
+      display: inline-block;
+      content: attr(data-badge);
+      transform: translate(-0.05rem, -0.5rem);
+      color: $light-color;
+      border-radius: 0.5rem;
+      background: $primary-color;
+      background-clip: padding-box;
+      box-shadow: 0 0 0 0.1rem $bg-color-light;
     }
+  }
 
-    &[data-badge] {
-        &::after {
-            padding: .1rem .2rem;
-            min-width: .9rem;
-            height: .9rem;
-            text-align: center;
-            white-space: nowrap;
-            font-size: $font-size-sm;
-            line-height: 1;
-        }
+  &[data-badge] {
+    &::after {
+      min-width: 0.9rem;
+      height: 0.9rem;
+      padding: 0.1rem 0.2rem;
+      text-align: center;
+      white-space: nowrap;
+      font-size: $font-size-sm;
+      line-height: 1;
     }
+  }
 
-    &:not([data-badge]),
-    &[data-badge=''] {
-        &::after {
-            padding: 0;
-            min-width: 6px;
-            width: 6px;
-            height: 6px;
-        }
+  &:not([data-badge]),
+  &[data-badge=""] {
+    &::after {
+      width: 6px;
+      min-width: 6px;
+      height: 6px;
+      padding: 0;
     }
+  }
 
-
-    /**
-     * Badges for Buttons
-     */
-
-    &.c-btn {
-        &::after {
-            position: absolute;
-            top: 0;
-            right: 0;
-            transform: translate(50%, -50%);
-        }
+  // Badges for Buttons
+  &.c-btn {
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
     }
+  }
 
-
-    /**
-     * Badges for Avatars
-     */
-
-    &.c-avatar {
-        &::after {
-            position: absolute;
-            top: 14.64%;
-            right: 14.64%;
-            z-index: $zindex-1;
-            transform: translate(50%, -50%);
-        }
+  // Badges for Avatars
+  &.c-avatar {
+    &::after {
+      position: absolute;
+      z-index: $zindex-1;
+      top: 14.64%;
+      right: 14.64%;
+      transform: translate(50%, -50%);
     }
+  }
 }

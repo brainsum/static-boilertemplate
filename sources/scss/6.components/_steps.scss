@@ -1,85 +1,81 @@
 /**
  * @file
- *** STEPS COMPONENT ***
+ * Steps component
  *
  * Steps are progress indicators of a sequence of task steps.
  * @see: https://picturepan2.github.io/spectre/components.html#steps
  */
-
-
-
 
 /**
  * Add a container element with the `c-step` class. And add child elements with
  * the `c-step__item` class. The `c-step__item` with the `is-active` class will
  * be highlighted and indicate the current state of progress.
  */
-
 .c-step {
-    display: flex;
-    flex-wrap: nowrap;
-    margin: $unit-1 0;
-    width: 100%;
-    list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: $unit-1 0;
+  list-style: none;
 
-    &__item {
-        position: relative;
-        flex: 1 1 0;
-        margin-top: 0;
-        min-height: 1rem;
-        text-align: center;
+  &__item {
+    position: relative;
+    flex: 1 1 0;
+    min-height: 1rem;
+    margin-top: 0;
+    text-align: center;
 
-        &:not(:first-child)::before {
-            position: absolute;
-            top: 9px;
-            left: -50%;
-            width: 100%;
-            height: 2px;
-            background: $primary-color;
-            content: '';
+    &:not(:first-child)::before {
+      position: absolute;
+      top: 9px;
+      left: -50%;
+      width: 100%;
+      height: 2px;
+      content: "";
+      background: $primary-color;
+    }
+
+    a {
+      display: inline-block;
+      padding: 20px 10px 0;
+      text-decoration: none;
+      color: $gray-color;
+
+      &::before {
+        position: absolute;
+        z-index: $zindex-0;
+        top: $unit-1;
+        left: 50%;
+        display: block;
+        width: $unit-3;
+        height: $unit-3;
+        content: "";
+        transform: translateX(-50%);
+        border: $border-width-lg solid $light-color;
+        border-radius: 50%;
+        background: $primary-color;
+      }
+    }
+
+    &.is-active {
+      a {
+        &::before {
+          border: $border-width-lg solid $primary-color;
+          background: $light-color;
+        }
+      }
+
+      & ~ .c-step__item {
+        &::before {
+          background: $border-color;
         }
 
         a {
-            display: inline-block;
-            padding: 20px 10px 0;
-            color: $gray-color;
-            text-decoration: none;
-
-            &::before {
-                position: absolute;
-                top: $unit-1;
-                left: 50%;
-                z-index: $zindex-0;
-                display: block;
-                width: $unit-3;
-                height: $unit-3;
-                border: $border-width-lg solid $light-color;
-                border-radius: 50%;
-                background: $primary-color;
-                content: '';
-                transform: translateX(-50%);
-            }
+          &::before {
+            background: $gray-color-light;
+          }
         }
-
-        &.is-active {
-            a {
-                &::before {
-                    border: $border-width-lg solid $primary-color;
-                    background: $light-color;
-                }
-            }
-
-            & ~ .c-step__item {
-                &::before {
-                    background: $border-color;
-                }
-
-                a {
-                    &::before {
-                        background: $gray-color-light;
-                    }
-                }
-            }
-        }
+      }
     }
+  }
 }

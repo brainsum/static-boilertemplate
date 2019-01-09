@@ -1,13 +1,10 @@
 /**
  * @file
- *** AVATARS COMPONENT ***
+ * Avatars component
  *
  * Avatars are user profile pictures.
  * @see: https://picturepan2.github.io/spectre/components.html#avatars
  */
-
-
-
 
 /**
  * Add the `c-avatar` class to `<img>` element.
@@ -24,95 +21,95 @@
  */
 
 .c-avatar {
-    @include avatar-base();
+  @include avatar-base();
+
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  color: rgba($light-color, 0.85);
+  border-radius: 50%;
+  background: $primary-color;
+  font-weight: 300;
+  line-height: 1.25;
+
+  &.c-avatar {
+    &--xs {
+      @include avatar-base($unit-4);
+    }
+
+    &--sm {
+      @include avatar-base($unit-6);
+    }
+
+    &--lg {
+      @include avatar-base($unit-12);
+    }
+
+    &--xl {
+      @include avatar-base($unit-16);
+    }
+  }
+
+  img {
     position: relative;
-    display: inline-block;
-    margin: 0;
+    z-index: $zindex-0;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    background: $primary-color;
-    color: rgba($light-color, .85);
-    vertical-align: middle;
-    font-weight: 300;
-    line-height: 1.25;
+  }
 
-    &.c-avatar {
-        &--xs {
-            @include avatar-base($unit-4);
-        }
+  /**
+   * Avatar presence
+   *
+   * Avatars support presence indicators. You can add an `<i>` element with
+   * the `c-avatar__presence` class, and add `.presence--online`,
+   * `.presence--busy` or `.presence--away` class for different status colors.
+   * The default is gray which means offline.
+   * @see: https://picturepan2.github.io/spectre/components.html#avatars-presence
+   */
+  &__icon,
+  &__presence {
+    position: absolute;
+    z-index: $zindex-0 + 1;
+    right: 14.64%;
+    bottom: 14.64%;
+    width: 50%;
+    height: 50%;
+    padding: $border-width-lg;
+    transform: translate(50%, 50%);
+    background: $bg-color-light;
+  }
 
-        &--sm {
-            @include avatar-base($unit-6);
-        }
+  &__presence {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background: $gray-color;
+    box-shadow: 0 0 0 $border-width-lg $light-color;
+  }
 
-        &--lg {
-            @include avatar-base($unit-12);
-        }
-
-        &--xl {
-            @include avatar-base($unit-16);
-        }
-    }
-
-    img {
-        position: relative;
-        z-index: $zindex-0;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-
-
-    /**
-     * AVATAR PRESENCE
-     * Avatars support presence indicators. You can add an `<i>` element with
-     * the `c-avatar__presence` class, and add `.presence--online`,
-     * `.presence--busy` or `.presence--away` class for different status colors.
-     * The default is gray which means offline.
-     * @see: https://picturepan2.github.io/spectre/components.html#avatars-presence
-     */
-
-    &__icon,
-    &__presence {
-        position: absolute;
-        right: 14.64%;
-        bottom: 14.64%;
-        z-index: $zindex-0 + 1;
-        padding: $border-width-lg;
-        width: 50%;
-        height: 50%;
-        background: $bg-color-light;
-        transform: translate(50%, 50%);
-    }
-
-    &__presence {
-        width: .5em;
-        height: .5em;
-        border-radius: 50%;
-        background: $gray-color;
-        box-shadow: 0 0 0 $border-width-lg $light-color;
-    }
-
-    &[data-initial]::before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: $zindex-0;
-        color: currentColor;
-        content: attr(data-initial);
-        transform: translate(-50%, -50%);
-    }
+  &[data-initial]::before {
+    position: absolute;
+    z-index: $zindex-0;
+    top: 50%;
+    left: 50%;
+    content: attr(data-initial);
+    transform: translate(-50%, -50%);
+    color: currentColor;
+  }
 }
 
 .presence {
-    &--online {
-        background: $success-color;
-    }
+  &--online {
+    background: $success-color;
+  }
 
-    &--busy {
-        background: $error-color;
-    }
+  &--busy {
+    background: $error-color;
+  }
 
-    &--away {
-        background: $warning-color;
-    }
+  &--away {
+    background: $warning-color;
+  }
 }

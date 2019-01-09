@@ -1,12 +1,9 @@
 /**
- *** POPOVERS COMPONENT ***
+ * Popovers component
  *
  * Popovers are small overlay content containers.
  * @see: https://picturepan2.github.io/spectre/components.html#popovers
  */
-
-
-
 
 /**
  * Wrap an element by a container with the `c-popover` class. And add a
@@ -20,68 +17,68 @@
  * class to define the position.
  * By default, the popovers appear above the element.
  */
-
 .c-popover {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 
-    &__container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        z-index: $zindex-3;
-        padding: $layout-spacing;
-        width: $control-width-sm;
-        opacity: 0;
-        transition: transform .2s ease;
-        transform: translate(-50%, -50%) scale(0);
+  &__container {
+    position: absolute;
+    z-index: $zindex-3;
+    top: 0;
+    left: 50%;
+    width: $control-width-sm;
+    padding: $layout-spacing;
+    transition: transform 0.2s ease;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+
+  *:focus + .c-popover__container,
+  &:hover .c-popover__container {
+    display: block;
+    transform: translate(-50%, -100%);
+    opacity: 1;
+  }
+
+  &.c-popover--right {
+    .c-popover__container {
+      top: 50%;
+      left: 100%;
     }
 
     *:focus + .c-popover__container,
     &:hover .c-popover__container {
-        display: block;
-        opacity: 1;
-        transform: translate(-50%, -100%);
+      transform: translate(0, -50%);
+    }
+  }
+
+  &.c-popover--bottom {
+    .c-popover__container {
+      top: 100%;
+      left: 50%;
     }
 
-    &.c-popover--right {
-        .c-popover__container {
-            top: 50%;
-            left: 100%;
-        }
+    *:focus + .c-popover__container,
+    &:hover .c-popover__container {
+      transform: translate(-50%, 0);
+    }
+  }
 
-        *:focus + .c-popover__container,
-        &:hover .c-popover__container {
-            transform: translate(0, -50%);
-        }
+  &.c-popover--left {
+    .c-popover__container {
+      top: 50%;
+      left: 0;
     }
 
-    &.c-popover--bottom {
-        .c-popover__container {
-            top: 100%;
-            left: 50%;
-        }
-
-        *:focus + .c-popover__container,
-        &:hover .c-popover__container {
-            transform: translate(-50%, 0);
-        }
+    *:focus + .c-popover__container,
+    &:hover .c-popover__container {
+      transform: translate(-100%, -50%);
     }
+  }
 
-    &.c-popover--left {
-        .c-popover__container {
-            top: 50%;
-            left: 0;
-        }
+  .c-card {
+    @include shadow-variant(0.2rem);
 
-        *:focus + .c-popover__container,
-        &:hover .c-popover__container {
-            transform: translate(-100%, -50%);
-        }
-    }
-
-    .c-card {
-        @include shadow-variant(.2rem);
-        border: 0;
-    }
+    border: 0;
+  }
 }
