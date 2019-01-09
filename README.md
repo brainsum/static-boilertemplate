@@ -1,9 +1,12 @@
 # BRAINSUM Static Boilertemplate
 
-Created by: [Krisztian Pinter](kpinter@brainsum.com)
-Created for: [BRAINSUM Frontend Wiki](http://wiki.brainsum.com/books/frontend-development)
-Created in: 2018.
-Updated on: 2019.01.09.
+* Created by: [Krisztian Pinter](kpinter@brainsum.com)
+
+* Created for: [BRAINSUM Frontend Wiki](http://wiki.brainsum.com/books/frontend-development)
+
+* Created in: 2018.
+
+* Updated on: 2019.01.09.
 
 ## Table of Contents
 
